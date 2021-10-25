@@ -1,3 +1,26 @@
 {
-    "HELLO": "Hola {{value}}"
+    "HELLO": "Hola {{value}}",
+    "landing": {
+        "welcome": "Bienvenido a mi sitio web!",
+        "title": "Encantando de conocerte",
+        "know-more": "Saber más"
+    },
+    "about": {
+        "title":"Sobre mí",
+        "subtitle": "Lorem ipsum dolor sit amet consectetur."
+    },
+    "portfolio": {
+        "title":"Portfolio",
+        "subtitle": "Lorem ipsum dolor sit amet consectetur."
+    },
+    "career": {
+        "title": "Experiencia",
+        "subtitle": "Lorem ipsum dolor sit amet consectetur."
+    },
+    "contact": {
+        "title": "Contáctame",
+        "subtitle": "Lorem ipsum dolor sit amet consectetur."
+    },
+    "privacy-policy": "Política de Privacidad",
+    "use-terms": "Terminos de Uso"
 }
