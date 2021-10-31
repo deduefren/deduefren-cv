@@ -1,13 +1,12 @@
 {
     "HELLO": "Hola {{value}}",
     "landing": {
-        "welcome": "Bienvenido a mi sitio web!",
-        "title": "Encantando de conocerte",
-        "know-more": "Saber más"
+        "welcome": "¡Bienvenido a mi página web!",
+        "job-title" : "Technical/Team Leader"
     },
     "about": {
         "title":"Sobre mí",
-        "subtitle": "Lorem ipsum dolor sit amet consectetur."
+        "subtitle": "Amante de la tecnología y la fotografía. Technical/Team Leader en Clarcat. Estudiante ITI en UNED."
     },
     "portfolio": {
         "title":"Portfolio",
@@ -15,7 +14,9 @@
     },
     "career": {
         "title": "Experiencia",
-        "subtitle": "Lorem ipsum dolor sit amet consectetur."
+        "subtitle": "Un resumen de los momentos importantes de mi carrera profesional",
+        "item1.title": "Estudiante CFGS",
+        "item1.description": "Empieza mi camino en informática cursando el Ciclo Formativo de Grado Superior de Desarrollo de Aplicaciones Multiplataforma"
     },
     "contact": {
         "title": "Contáctame",
