@@ -1,3 +1,37 @@
 {
-    "HELLO": "Hola {{value}}"
+    "HELLO": "Hola {{value}}",
+    "landing": {
+        "welcome": "¡Bienvenido a mi página web!",
+        "job-title" : "Technical/Team Leader"
+    },
+    "about": {
+        "title":"Sobre mí",
+        "subtitle": "Amante de la tecnología y la fotografía. Technical/Team Leader en Clarcat. Estudiante ITI en UNED."
+    },
+    "portfolio": {
+        "title":"Portfolio",
+        "subtitle": "Lorem ipsum dolor sit amet consectetur."
+    },
+    "career": {
+        "title": "Experiencia",
+        "subtitle": "Un resumen de los momentos importantes de mi carrera profesional",
+        "item1.title": "Estudiante CFGS",
+        "item1.description": "Empieza mi camino en informática cursando el Ciclo Formativo de Grado Superior de Desarrollo de Aplicaciones Multiplataforma"
+    },
+    "contact": {
+        "title": "Contáctame",
+        "subtitle": "¿Quieres ponerte en contacto? Déjame un mensaje",
+        "name": "Nombre *",
+        "name-validation": "Es obligatorio introducir un nombre.",
+        "email": "Email *",
+        "email-validation-required": "Es obligatorio introducir un email.",
+        "email-validation-invalid": "El email introducido no es válido.",
+        "phone": "Teléfono",
+        "message": "Tu mensaje *",
+        "message-validation" : "Es obligatorio introducir un mensaje.",
+        "send-button": "Enviar",
+        "send-error": "Error enviando el mensaje."
+    },
+    "privacy-policy": "Política de Privacidad",
+    "use-terms": "Terminos de Uso"
 }

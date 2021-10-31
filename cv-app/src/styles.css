@@ -10953,8 +10953,8 @@ p {
   }
 }
 header.masthead {
-  padding-top: 10.5rem;
-  padding-bottom: 6rem;
+  padding-top: 7rem;
+  padding-bottom: 3rem;
   text-align: center;
   color: #fff;
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(42,41,41,1) 35%, rgba(73,73,73,1) 79%);
@@ -10982,8 +10982,8 @@ header.masthead .masthead-heading {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 17rem;
-    padding-bottom: 12.5rem;
+    padding-top: 11rem;
+    padding-bottom: 7.5rem;
   }
   header.masthead .masthead-subheading {
     font-size: 2.25rem;
