@@ -20,7 +20,17 @@
     },
     "contact": {
         "title": "Contáctame",
-        "subtitle": "Lorem ipsum dolor sit amet consectetur."
+        "subtitle": "¿Quieres ponerte en contacto? Déjame un mensaje",
+        "name": "Nombre *",
+        "name-validation": "Es obligatorio introducir un nombre.",
+        "email": "Email *",
+        "email-validation-required": "Es obligatorio introducir un email.",
+        "email-validation-invalid": "El email introducido no es válido.",
+        "phone": "Teléfono",
+        "message": "Tu mensaje *",
+        "message-validation" : "Es obligatorio introducir un mensaje.",
+        "send-button": "Enviar",
+        "send-error": "Error enviando el mensaje."
     },
     "privacy-policy": "Política de Privacidad",
     "use-terms": "Terminos de Uso"
