@@ -15,6 +15,8 @@
     "career": {
         "title": "Experiencia",
         "subtitle": "Un resumen de los momentos importantes de mi carrera profesional",
+        "item0.title": "Orígenes",
+        "item0.description": "Descubro la informática, en concreto la programación en el Instituto gracias a un profesor fantástico y me quedo enganchado, durante esta etapa aparecen en mi vida los libros y blogs de informática, incluso llegando a dar la clase de programación a mis compañeros.",
         "item1.title": "Estudiante CFGS",
         "item1.description": "Empieza mi camino en informática cursando el Ciclo Formativo de Grado Superior de Desarrollo de Aplicaciones Multiplataforma.",
         "item2.title": "Incorporación a Clarcat",
@@ -45,11 +47,11 @@
         "item10.date": "Diciembre 2020",
         "item10.description": "Obtengo la certificación que prueba mis conocimientos sobre el desarrollo de aplicaciones en Azure.",
         "item11.title": "Certificación Microsoft Azure DevOps Engineer",
-        "item11.date": "Diciembre 2020",
+        "item11.date": "Mayo 2021",
         "item11.description": "Completo la certificación de Developer con la parte especifica de DevOps brindándome un mayor conocimiento del entorno de Azure.",
-        "ending-line1": "Construyendo",
-        "ending-line2": "mi",
-        "ending-line3": "camino"
+        "ending-line1": "",
+        "ending-line2": "Orígenes",
+        "ending-line3": ""
     },
     "contact": {
         "title": "Contáctame",
