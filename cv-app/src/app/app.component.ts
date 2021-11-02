@@ -8,7 +8,6 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'cv-app';
-  param = {value: 'world'};
 
   constructor(translate: TranslateService) {
 
