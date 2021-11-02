@@ -11,7 +11,7 @@
             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                 <li class="nav-item"><a class="nav-link" href="#aboutme">{{ 'about.title' | translate }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="#career">{{ 'career.title' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" href="#portfolio">{{ 'portfolio.title' | translate }}</a></li>
+                <!--<li class="nav-item"><a class="nav-link" href="#portfolio">{{ 'portfolio.title' | translate }}</a></li>-->
                 <li class="nav-item"><a class="nav-link" href="#contact">{{ 'contact.title' | translate }}</a></li>
             </ul>
         </div>
@@ -51,29 +51,36 @@
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    <i class="fab fa-leanpub fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">E-Commerce</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="my-3">{{'about.learning-title' | translate}}</h4>
+                <p class="text-muted">{{'about.learning-description' | translate}}</p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Responsive Design</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="my-3">{{'about.net-title' | translate}}</h4>
+                <p class="text-muted">{{'about.net-description' | translate}}</p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                    <i class="fas fa-cloud fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">Web Security</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam
-                    architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="my-3">{{'about.backend-title' | translate}}</h4>
+                <p class="text-muted">{{'about.backend-description' | translate}}</p>
+            </div>
+        </div>
+        <div class="row text-center justify-content-center">
+            <div class="col-md-4">
+                <span class="fa-stack fa-4x">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fas fa-heart fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="my-3">{{'about.passion-title' | translate}}</h4>
+                <p class="text-muted">{{'about.passion-description' | translate}}</p>
             </div>
         </div>
     </div>
@@ -253,7 +260,7 @@
     </div>
 </section>
 
-<!-- Portfolio Grid-->
+<!-- Portfolio Grid
 <section class="page-section bg-light" id="portfolio">
     <div class="container">
         <div class="text-center">
@@ -262,7 +269,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 1-->
+                <!- Portfolio item 1->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
                         <div class="portfolio-hover">
@@ -277,7 +284,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 2-->
+                <!- Portfolio item 2->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
                         <div class="portfolio-hover">
@@ -292,7 +299,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 mb-4">
-                <!-- Portfolio item 3-->
+                <!- Portfolio item 3->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
                         <div class="portfolio-hover">
@@ -309,7 +316,7 @@
         </div>
     </div>
 </section>
-
+-->
 
 <!-- Contact-->
 <section class="page-section" id="contact">
@@ -398,8 +405,9 @@
         </div>
     </div>
 </footer>
-<!-- Portfolio Modals-->
-<!-- Portfolio item 1 modal popup-->
+
+<!-- Portfolio Modals
+<!- Portfolio item 1 modal popup->
 <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -409,7 +417,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="modal-body">
-                            <!-- Project details-->
+                            <!- Project details->
                             <h2 class="text-uppercase">Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                             <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg" alt="..." />
@@ -438,7 +446,7 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 2 modal popup-->
+<!- Portfolio item 2 modal popup->
 <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -448,7 +456,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="modal-body">
-                            <!-- Project details-->
+                            <!- Project details->
                             <h2 class="text-uppercase">Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                             <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/2.jpg" alt="..." />
@@ -477,7 +485,7 @@
         </div>
     </div>
 </div>
-<!-- Portfolio item 3 modal popup-->
+<!- Portfolio item 3 modal popup->
 <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -487,7 +495,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="modal-body">
-                            <!-- Project details-->
+                            <!- Project details->
                             <h2 class="text-uppercase">Project Name</h2>
                             <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                             <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/3.jpg" alt="..." />
@@ -517,5 +525,4 @@
     </div>
 </div>
 
-
-<!--<router-outlet></router-outlet>-->
+-->
