@@ -7,6 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using SendGrid.Helpers.Mail;
 
 namespace deduefrencv.postcontactform
 {
@@ -15,18 +16,27 @@ namespace deduefrencv.postcontactform
         [FunctionName("PostContactForm")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [SendGrid(ApiKey = "SendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
+            try
+            {
+                string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+                var form = JsonConvert.DeserializeObject<ContactForm>(requestBody);
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var form = JsonConvert.DeserializeObject<ContactForm>(requestBody);
-
-            string responseMessage = string.IsNullOrEmpty(form.Name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {form.Name}. This HTTP triggered function executed successfully.";
-
-            return new OkObjectResult(responseMessage);
+                var message = new SendGridMessage();
+                message.AddTo(System.Environment.GetEnvironmentVariable("ContactMailDestination"));
+                message.AddContent("text/html", form.Message);
+                message.SetFrom(new EmailAddress(form.Email));
+                message.SetSubject($"deduefren-cv nuevo mensaje de {form.Name}");
+                
+                await messageCollector.AddAsync(message);
+                log.LogInformation("C# HTTP trigger email sent");
+            }catch (Exception ex){
+                log.LogError(ex, $"Error on {nameof(PostContactForm)} function: {ex.ToString()}");
+            }
+            return new OkObjectResult(true);
         }
 
         public class ContactForm {
