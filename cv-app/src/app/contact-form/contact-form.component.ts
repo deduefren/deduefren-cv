@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
@@ -18,7 +19,7 @@ export class ContactFormComponent implements OnInit {
     message: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -27,5 +28,7 @@ export class ContactFormComponent implements OnInit {
     // TODO: Use EventEmitter with form value
     //TODO: Figure out what to do to send 
     console.warn(this.contactForm.value);
+    this.http.post('/api/PostContactForm', this.contactForm.value)
+    .subscribe((resp: any) => console.warn(resp.text));
   }
 }
