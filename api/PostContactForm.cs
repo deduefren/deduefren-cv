@@ -16,9 +16,10 @@ namespace deduefrencv.postcontactform
         [FunctionName("PostContactForm")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-            [SendGrid(ApiKey = "SendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector,
+            [SendGrid(ApiKey = "AzureWebJobsSendGridApiKey")] IAsyncCollector<SendGridMessage> messageCollector,
             ILogger log)
         {
+            string error= "";
             log.LogInformation("C# HTTP trigger function processed a request.");
             try
             {
@@ -33,11 +34,13 @@ namespace deduefrencv.postcontactform
                 
                 await messageCollector.AddAsync(message);
                 
+                await messageCollector.FlushAsync();
                 log.LogInformation("C# HTTP trigger email sent");
             }catch (Exception ex){
-                log.LogError(ex, $"Error on {nameof(PostContactForm)} function: {ex.ToString()}");
+                error = $"Error on {nameof(PostContactForm)} function: {ex.ToString()}";
+                log.LogError(ex, error);
             }
-            return new OkObjectResult(true);
+            return new OkObjectResult(error);
         }
 
         public class ContactForm {
