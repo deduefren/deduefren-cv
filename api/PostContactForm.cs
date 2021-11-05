@@ -28,10 +28,11 @@ namespace deduefrencv.postcontactform
                 var message = new SendGridMessage();
                 message.AddTo(System.Environment.GetEnvironmentVariable("ContactMailDestination"));
                 message.AddContent("text/html", form.Message);
-                message.SetFrom(new EmailAddress(form.Email));
-                message.SetSubject($"deduefren-cv nuevo mensaje de {form.Name}");
+                message.SetFrom(new EmailAddress(System.Environment.GetEnvironmentVariable("ContactMailSender")));
+                message.SetSubject($"deduefren-cv nuevo mensaje de {form.Name} con email {form.Email}");
                 
                 await messageCollector.AddAsync(message);
+                
                 log.LogInformation("C# HTTP trigger email sent");
             }catch (Exception ex){
                 log.LogError(ex, $"Error on {nameof(PostContactForm)} function: {ex.ToString()}");
