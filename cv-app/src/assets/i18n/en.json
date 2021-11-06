@@ -5,7 +5,15 @@
     },
     "about": {
         "title":"About me",
-        "subtitle": "Amante de la tecnología y la fotografía. Technical/Team Leader en Clarcat. Estudiante ITI en UNED."
+        "subtitle": "Amante de la tecnología y la fotografía. Technical/Team Leader en Clarcat. Estudiante ITI en UNED.",
+        "learning-title" : "Aprendizaje",
+        "learning-description" : "Capacidad para aprender y resolver problemas. A lo largo de mi carrera me he enfrentado a gran cantidad de retos lo que me ha permitido desarrollar un método de trabajo que acelera el proceso de aprendizaje y comprensión.",
+        "net-title" : "Backend y C#",
+        "net-description" : "Estoy especializado en el desarrollo de soluciones de backend utilizando tecnologías de Microsoft y experto en lenguaje C# poseo la certificación MSCD: App Builder.",
+        "backend-title" : "Arquitectura y Azure",
+        "backend-description" : "Experiencia en la creación de arquitecturas de aplicaciones que se ejecutan en la nube o en servidores clásicos. Cuento con certificaciones en Azure y exploro nuevas tecnologías continuamente.",
+        "passion-title" : "Pasión",
+        "passion-description" : "Mi pasión por la tecnología me lleva a estar en continuo aprendizaje y buscando nuevos retos que me permitan evolucionar como profesional."
     },
     "portfolio": {
         "title":"Portfolio",
