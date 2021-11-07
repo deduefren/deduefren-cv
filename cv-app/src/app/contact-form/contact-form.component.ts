@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
 
@@ -12,14 +12,17 @@ import { FormArray } from '@angular/forms';
 export class ContactFormComponent implements OnInit {
 
   //TODO: Link validations with markup.
-  contactForm = this.fb.group({
-    name: ['', Validators.required],
-    email: ['', Validators.required, Validators.email],
-    phoneNumber: [''],
-    message: ['', Validators.required]
+  contactForm: FormGroup = this.fb.group({
+    name: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(80)])],
+    email: ['', Validators.compose([Validators.required, Validators.email])],
+    phone: ['', Validators.maxLength(15)],
+    message: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(1000)])]
   });
-
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  statusCode = null;
+  error = null;
+  
+  constructor(private fb: FormBuilder, private http: HttpClient) { 
+  }
 
   ngOnInit(): void {
   }
@@ -29,6 +32,7 @@ export class ContactFormComponent implements OnInit {
     //TODO: Figure out what to do to send 
     console.warn(this.contactForm.value);
     this.http.post('/api/PostContactForm', this.contactForm.value)
-    .subscribe((resp: any) => console.warn(resp.text));
+    .subscribe((resp: any) => { console.log(resp); this.statusCode = resp.statusCode; this.error = resp.message; } );
   }
+
 }

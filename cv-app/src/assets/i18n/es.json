@@ -57,14 +57,21 @@
         "subtitle": "¿Quieres ponerte en contacto? Déjame un mensaje",
         "name": "Nombre *",
         "name-validation": "Es obligatorio introducir un nombre.",
+        "name-validation-length": "El nombre debe tener un longitud entre 3 y 80 caracteres.",
         "email": "Email *",
         "email-validation-required": "Es obligatorio introducir un email.",
         "email-validation-invalid": "El email introducido no es válido.",
         "phone": "Teléfono",
+        "phone-validation-length": "El teléfono debe tener un longitud máxima de 15 caracteres.",
         "message": "Tu mensaje *",
         "message-validation" : "Es obligatorio introducir un mensaje.",
+        "message-validation-length": "El email debe tener un longitud entre 5 y 1000 caracteres.",
         "send-button": "Enviar",
-        "send-error": "Error enviando el mensaje."
+        "send-error": "Error enviando el mensaje.",
+        "send-success": "Mensaje enviado correctamente.",
+        "InvalidInput": "Se ha introducido una entrada inválida, por favor asegurese de no introducir etiquetas html.",
+        "InvalidArgument": "Se han introducido argumentos inválidos, asegurese de rellenar el formulario correctamente.",
+        "MissingArgument": "Faltan argumentos obligatorios, asegurese de rellenar: Nombre, Email y Mensaje."
     },
     "privacy-policy": "Política de Privacidad",
     "use-terms": "Terminos de Uso"

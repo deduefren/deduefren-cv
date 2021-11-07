@@ -117,17 +117,212 @@ namespace api_test
         }
 
         [TestMethod]
-        public async Task GivenNameWithHypens_WhenSending_IsValid()
+        public async Task GivenNameTooShort_WhenSending_IsInvalid()
         {
             var form = ValidContactForm();
-            form.Name = "á é í ó ú";
+            form.Name = "a";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertInvalidArgument(response);
+        }
+
+        [TestMethod]
+        public async Task GivenNameTooLong_WhenSending_IsInvalid()
+        {
+            var form = ValidContactForm();
+            form.Name = "123456789012345678901234567890123456789012345678901234567890123456789012345678901";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertInvalidArgument(response);
+        }
+
+        [TestMethod]
+        public async Task GivenPhoneTooLong_WhenSending_IsInvalid()
+        {
+            var form = ValidContactForm();
+            form.Phone = "01234567890123456";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertInvalidArgument(response);
+        }
+
+        [TestMethod]
+        public async Task GivenMessageTooShort_WhenSending_IsInvalid()
+        {
+            var form = ValidContactForm();
+            form.Message = "s";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertInvalidArgument(response);
+        }
+
+        [TestMethod]
+        public async Task GivenMessageTooLong_WhenSending_IsInvalid()
+        {
+            var form = ValidContactForm();
+            form.Message = new string('*', 1001); // 1001 stars! :)
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertInvalidArgument(response);
+        }
+
+        [TestMethod]
+        public async Task GivenNameWithDieresis_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "ä ë ï ö ü";
             //Arrange
             var request = TestFactory.CreateHttpRequest(form);
             //Act
             var response = await GetResponse(request);
             //Assert
             AssertSuccess(response);
-        }        
+        }
+
+        [TestMethod]
+        public async Task GivenNameWithUpperDieresis_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "Ä Ë Ï Ö Ü";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
+        public async Task GivenNameWithTilde_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "á é í ó ú ´";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
+        public async Task GivenNameWithUpperTilde_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "Á É Í Ó Ú";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
+        public async Task GivenFrenchWithCircunflexTilde_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "â ê î ô û ^";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
+        public async Task GivenFrenchWithCircunflexUpperTilde_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "Â Ê Î Ô Û";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
+        public async Task GivenFrenchWithGraveDiacritics_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "à è ì ò ù `";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
+        public async Task GivenFrenchWithUpperGraveDiacritics_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "À È Ì Ò Ù";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
+        public async Task GivenDescriptionWithHypens_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Message = "Luke, I'm your father";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
+        public async Task GivenGraveHypen_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Message = "Luke, I`m your -father";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
+        public async Task GivenDescriptionWithUrl_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Email = "Look https://es.wikipedia.org/wiki/Luke,_yo_soy_tu_padre";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
 
         [TestMethod]
         public async Task GivenXSSName_WhenSending_Ignored()
@@ -147,10 +342,10 @@ namespace api_test
         [TestMethod]
         public async Task GivenXSSPhone_WhenSending_Ignored()
         {
-            string xssMessage = "<SCRIPT SRC=http://xss.rocks/xss.js></SCRIPT>";
+            string xssMessage = "<SCRIPT>";
 
             var form = ValidContactForm();
-            form.Phone += xssMessage;
+            form.Phone = xssMessage;
             //Arrange
             var request = TestFactory.CreateHttpRequest(form);
             //Act
@@ -217,6 +412,13 @@ namespace api_test
             var value = (PostContactForm.Result)response.Value;
             value.StatusCode.Should().Be(PostContactForm.Result.SuccessCode);
             value.Message.Should().BeEmpty();
+        }
+
+        private static void AssertInvalidArgument(JsonResult response)
+        {
+            var value = (PostContactForm.Result)response.Value;
+            value.StatusCode.Should().Be(PostContactForm.Result.InvalidArgumentCode);
+            value.Message.Should().NotBeNullOrWhiteSpace();
         }
 
         private static void AssertMissingArgument(JsonResult response)

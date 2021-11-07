@@ -49,6 +49,13 @@ namespace deduefrencv.postcontactform
                 if (string.IsNullOrEmpty(form.Message))
                     return new JsonResult(Result.MissingArguments());
 
+                if (form.Name.Length < 3 || form.Name.Length > 80)
+                    return new JsonResult(Result.InvalidArgument());
+                if (form.Message.Length < 5 || form.Message.Length > 1000)
+                    return new JsonResult(Result.InvalidArgument());
+                if (form.Phone.Length > 15)
+                    return new JsonResult(Result.InvalidArgument());
+
                 //Check for xss or dangerous content
                 XssValidator.ThrowIfForbiddenInput(form.Name);
                 XssValidator.ThrowIfForbiddenInput(form.Email);
@@ -115,8 +122,9 @@ namespace deduefrencv.postcontactform
         {
             public const int SuccessCode = 0;
             public const int MissingArgumentCode = -1;
-            public const int UnexpectedErrorCode = -2;
-            public const int InvalidInputCode = -3;
+            public const int InvalidInputCode = -2;
+            public const int InvalidArgumentCode = -3;
+            public const int UnexpectedErrorCode = -4;
 
             private Result(int statusCode, string message = "")
             {
@@ -145,6 +153,11 @@ namespace deduefrencv.postcontactform
             internal static Result Success()
             {
                 return new Result(SuccessCode);
+            }
+
+            internal static Result InvalidArgument()
+            {
+                return new Result(InvalidArgumentCode, "InvalidArgument");
             }
         }
     }
