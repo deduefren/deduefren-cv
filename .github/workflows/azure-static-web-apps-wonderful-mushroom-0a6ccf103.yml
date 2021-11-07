@@ -9,9 +9,6 @@ on:
     branches:
       - main
 
-env:
-  DOTNET_VERSION: '2.2.402'              # set this to the dotnet version to use
-
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
@@ -26,7 +23,7 @@ jobs:
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: '3.x'
-          
+
       - name: Install dependencies
         run: dotnet restore
 
