@@ -20,7 +20,7 @@ jobs:
           submodules: true
 
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore api
 
       - name: Build
         run: dotnet build api --configuration Release --no-restore
