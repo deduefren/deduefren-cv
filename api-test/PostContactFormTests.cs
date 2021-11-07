@@ -182,6 +182,19 @@ namespace api_test
         }
 
         [TestMethod]
+        public async Task GivenNameWithÑ_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "ñ Ñ";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
         public async Task GivenNameWithDieresis_WhenSending_IsValid()
         {
             var form = ValidContactForm();

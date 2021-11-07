@@ -21,7 +21,7 @@ namespace api.Services
             }
         }
 
-        private static string AllowedChars(string encoded)
+        public static string AllowedChars(string encoded)
         {
             return encoded
                 .Replace("&#xE1;", "á")
@@ -68,6 +68,9 @@ namespace api.Services
                 .Replace("&#xCF;", "Ï")
                 .Replace("&#xD6;", "Ö")
                 .Replace("&#xDC;", "Ü")
+
+                .Replace("&#xF1;", "ñ")
+                .Replace("&#xD1;", "Ñ")
 
                 .Replace("&#x27;", "'");
         }
