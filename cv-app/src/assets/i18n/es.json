@@ -1,5 +1,4 @@
 {
-    "HELLO": "Hola {{value}}",
     "landing": {
         "welcome": "¡Bienvenido a mi página web!",
         "job-title" : "Technical/Team Leader"
