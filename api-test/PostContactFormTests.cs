@@ -205,8 +205,9 @@ namespace api_test
                 sendGrid.Object, 
                 logger, 
                 new Microsoft.Azure.WebJobs.ExecutionContext() 
-                { 
-                    FunctionDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) 
+                {
+                    //https://github.com/Azure/azure-functions-host/wiki/Retrieving-information-about-the-currently-running-function
+                    FunctionAppDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) 
                 }
                 );
         }

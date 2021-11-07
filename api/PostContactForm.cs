@@ -62,7 +62,7 @@ namespace deduefrencv.postcontactform
                 string encodedMessage = System.Net.WebUtility.HtmlEncode(form.Message);
 
                 //Get and format mail template
-                var html = File.ReadAllText(context.FunctionDirectory + "/MailTemplate.html");
+                var html = File.ReadAllText(context.FunctionAppDirectory + "/MailTemplate.html");
                 html = FormatTemplate(html, nameof(form.Name), encodedName);
                 html = FormatTemplate(html, nameof(form.Email), encodedEmail);
                 html = FormatTemplate(html, nameof(form.Phone), encodedPhone);
