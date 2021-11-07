@@ -1,4 +1,4 @@
-using api.Services;
+ï»¿using api.Services;
 using api_test.Helpers;
 using deduefrencv.postcontactform;
 using FluentAssertions;
@@ -118,7 +118,7 @@ namespace api_test
         public async Task GivenNameWithHypens_WhenSending_IsValid()
         {
             var form = ValidContactForm();
-            form.Name = "á é í ó ú";
+            form.Name = "Ã¡ Ã© Ã­ Ã³ Ãº";
             //Arrange
             var request = TestFactory.CreateHttpRequest(form);
             //Act
