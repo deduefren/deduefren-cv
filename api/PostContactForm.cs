@@ -27,7 +27,9 @@ namespace deduefrencv.postcontactform
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             [SendGrid(ApiKey = "SendGridApiKey")] IAsyncCollector<SendGridMessage> messageCollector,
-            ILogger log)
+            ILogger log, 
+            ExecutionContext context
+            )
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
             try
@@ -60,8 +62,7 @@ namespace deduefrencv.postcontactform
                 string encodedMessage = System.Net.WebUtility.HtmlEncode(form.Message);
 
                 //Get and format mail template
-                var binDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                var html = File.ReadAllText(binDirectory + "/MailTemplate.html");
+                var html = File.ReadAllText(context.FunctionDirectory + "/MailTemplate.html");
                 html = FormatTemplate(html, nameof(form.Name), encodedName);
                 html = FormatTemplate(html, nameof(form.Email), encodedEmail);
                 html = FormatTemplate(html, nameof(form.Phone), encodedPhone);

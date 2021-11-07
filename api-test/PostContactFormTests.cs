@@ -9,6 +9,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using SendGrid.Helpers.Mail;
+using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -198,7 +200,15 @@ namespace api_test
 
         private async Task<JsonResult> GetResponse(Microsoft.AspNetCore.Http.HttpRequest request)
         {
-            return (JsonResult)await sut.Run(request, sendGrid.Object, logger);
+            return (JsonResult)await sut.Run(
+                request, 
+                sendGrid.Object, 
+                logger, 
+                new Microsoft.Azure.WebJobs.ExecutionContext() 
+                { 
+                    FunctionDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) 
+                }
+                );
         }
 
         private static void AssertSuccess(JsonResult response)
