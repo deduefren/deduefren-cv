@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="text-center">
+        <h2 class="section-heading text-uppercase">{{ 'contact.title' | translate }}</h2>
+        <h3 class="section-subheading text-muted">{{ 'contact.subtitle' | translate }}</h3>
+    </div>
+    <form id="contactForm" [formGroup]="contactForm" novalidate (ngSubmit)="onSubmit()">
+        <div class="row align-items-stretch mb-5">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <!-- Name input-->
+                    <input 
+                        class="{{ (contactForm.controls['name'].dirty || contactForm.controls['name'].touched) ? ((contactForm.controls['name'].invalid ) ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control' }}" 
+                        id="name" type="text" formControlName="name" placeholder="{{ 'contact.name' | translate}}"
+                        data-sb-validations="required" />
+
+                    <div *ngIf="contactForm.controls['name'].invalid && contactForm.controls['name'].errors != null && contactForm.controls['name'].errors.required"
+                         class="invalid-feedback" data-sb-feedback="name:required">
+                        {{ 'contact.name-validation' | translate}}
+                    </div>
+                    <div *ngIf="contactForm.controls['name'].invalid && (contactForm.controls['name'].errors?.minlength || contactForm.controls['name'].errors?.maxlength)"
+                         class="invalid-feedback" data-sb-feedback="name:length">
+                        {{ 'contact.name-validation-length' | translate}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- Email address input-->
+                    <input class="{{ (contactForm.controls['email'].dirty || contactForm.controls['email'].touched) ? ((contactForm.controls['email'].invalid ) ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control' }}" 
+                         id="email" type="email" formControlName="email"
+                         [email]="true"
+                        placeholder="{{ 'contact.email' | translate}}" data-sb-validations="required,email" />
+                    <div *ngIf="contactForm.controls['email'].invalid && contactForm.controls['email'].errors?.required"
+                         class="invalid-feedback" data-sb-feedback="email:required">{{
+                        'contact.email-validation-required' | translate}}</div>
+                    <div *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].dirty || contactForm.controls['email'].touched) && contactForm.controls['email'].errors?.email" 
+                        class="invalid-feedback" data-sb-feedback="email:email">{{
+                        'contact.email-validation-invalid' | translate}}</div>
+                </div>
+                <div class="form-group mb-md-0">
+                    <!-- Phone number input-->
+                    <input class="{{ (contactForm.controls['phone'].dirty || contactForm.controls['phone'].touched) ? ((contactForm.controls['phone'].invalid ) ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control' }}" 
+                        id="phone" type="tel" formControlName="phone"
+                        placeholder="{{ 'contact.phone' | translate}}" />
+
+                    <div *ngIf="contactForm.controls['phone'].invalid && contactForm.controls['phone'].errors?.maxlength"
+                        class="invalid-feedback" data-sb-feedback="phone:length">{{'contact.phone-validation-length' | translate}}</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group form-group-textarea mb-md-0">
+                    <!-- Message input-->
+                    <textarea 
+                        class="{{ (contactForm.controls['message'].dirty || contactForm.controls['message'].touched) ? ((contactForm.controls['message'].invalid ) ? 'form-control is-invalid' : 'form-control is-valid') : 'form-control' }}" 
+                        id="message" formControlName="message" placeholder="{{ 'contact.message' | translate}}"
+                        data-sb-validations="required"></textarea>
+
+                    <div *ngIf="contactForm.controls['message'].invalid && contactForm.controls['message'].errors?.required"
+                        class="invalid-feedback" data-sb-feedback="message:required">{{'contact.message-validation' | translate}}</div>
+
+                    <div *ngIf="contactForm.controls['message'].invalid && (contactForm.controls['message'].errors?.minlength || contactForm.controls['message'].errors?.maxlength)"
+                         class="invalid-feedback" data-sb-feedback="message:length">
+                        {{ 'contact.message-validation-length' | translate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Submit success message-->
+        <!---->
+        <!-- This is what your users will see when the form-->
+        <!-- has successfully submitted-->
+        <div *ngIf="statusCode == 0" id="submitSuccessMessage">
+            <div class="text-center text-white mb-3">
+                <div class="fw-bolder"> {{ 'contact.send-success' | translate }}</div>
+            </div>
+        </div>
+        <!-- Submit error message-->
+        <!---->
+        <!-- This is what your users will see when there is-->
+        <!-- an error submitting the form-->
+        <div *ngIf="statusCode != null && statusCode &lt; 0" id="submitErrorMessage">
+            <div class="text-center text-danger mb-3">{{'contact.send-error' | translate}} {{ statusCode == -4 ? error :  'contact.' + error | translate}}</div>
+        </div>
+        <!-- Submit Button-->
+        <div class="text-center">
+            <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit" [disabled]="!contactForm.valid">{{'contact.send-button' | translate}}</button>
+        </div>
+    </form>
+</div>
