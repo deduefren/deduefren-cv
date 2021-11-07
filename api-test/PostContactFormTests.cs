@@ -105,9 +105,7 @@ namespace api_test
             //Act
             var response = await GetResponse(request);
             //Assert
-            var value = (PostContactForm.Result)response.Value;
-            value.StatusCode.Should().Be(PostContactForm.Result.SuccessCode);
-            value.Message.Should().BeEmpty();
+            AssertSuccess(response);
 
             message.From.Email.Should().Be(MailSender);
             message.Personalizations[0].Tos[0].Email.Should().Be(Destination);
@@ -115,6 +113,19 @@ namespace api_test
             message.HtmlContent.Should().NotContain("{{");
             message.HtmlContent.Should().NotContain("}}");
         }
+
+        [TestMethod]
+        public async Task GivenNameWithHypens_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "á é í ó ú";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }        
 
         [TestMethod]
         public async Task GivenXSSName_WhenSending_Ignored()
@@ -188,6 +199,13 @@ namespace api_test
         private async Task<JsonResult> GetResponse(Microsoft.AspNetCore.Http.HttpRequest request)
         {
             return (JsonResult)await sut.Run(request, sendGrid.Object, logger);
+        }
+
+        private static void AssertSuccess(JsonResult response)
+        {
+            var value = (PostContactForm.Result)response.Value;
+            value.StatusCode.Should().Be(PostContactForm.Result.SuccessCode);
+            value.Message.Should().BeEmpty();
         }
 
         private static void AssertMissingArgument(JsonResult response)

@@ -1,7 +1,4 @@
 ﻿using api.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Encodings.Web;
 
 namespace api.Services
@@ -16,10 +13,22 @@ namespace api.Services
             }
 
             var encoded = HtmlEncoder.Default.Encode(value);
+            encoded = AllowSpanishTildes(encoded);
             if (value != encoded)
+
             {
                 throw new XssException("Forbidden input. The following characters are not allowed: &, <, >, \", '");
             }
+        }
+
+        private static string AllowSpanishTildes(string encoded)
+        {
+            return encoded
+                .Replace("&#xE1;", "á")
+                .Replace("&#xE9;", "é")
+                .Replace("&#xED;", "í")
+                .Replace("&#xF3;", "ó")
+                .Replace("&#xFA;", "ú");
         }
     }
 }
