@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
@@ -28,11 +27,25 @@ export class ContactFormComponent implements OnInit {
   }
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    //TODO: Figure out what to do to send 
-    console.warn(this.contactForm.value);
     this.http.post('/api/PostContactForm', this.contactForm.value)
-    .subscribe((resp: any) => { console.log(resp); this.statusCode = resp.statusCode; this.error = resp.message; } );
+    .subscribe((resp: any) => 
+    { 
+      this.statusCode = resp.statusCode;
+      this.error = resp.message;
+      if (this.statusCode == 0)
+      {
+        this.resetForm(this.contactForm);
+      }
+    });
+  }
+
+  resetForm(form: FormGroup) {
+
+    form.reset();
+
+    Object.keys(form.controls).forEach(key => {
+      form.get(key)?.setErrors(null);
+    });
   }
 
 }

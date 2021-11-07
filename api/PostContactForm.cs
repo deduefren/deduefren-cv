@@ -84,9 +84,6 @@ namespace deduefrencv.postcontactform
 
                 await messageCollector.AddAsync(message);
 
-                //TODO: ¿Is this line necessary?
-                //await messageCollector.FlushAsync();
-
                 //TODO: Maybe send an email back to the sender leting them know their rights.
 
                 log.LogInformation($"C# HTTP trigger email sent from {encodedEmail}");
