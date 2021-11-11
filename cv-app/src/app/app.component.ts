@@ -23,7 +23,7 @@ export class AppComponent {
       //If it's supported use it, if not, we are going to english by default
       if (lang == 'es' || lang == 'en')
       {
-        translate.use(browserLang);
+        translate.use(lang);
       }
     }
   }
