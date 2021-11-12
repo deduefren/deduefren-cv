@@ -182,6 +182,45 @@ namespace api_test
         }
 
         [TestMethod]
+        public async Task GivenNameWithExclamation_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "hola a todos!";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
+        public async Task GivenNameWithDot_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Name = "hola a todos.";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
+        public async Task GivenNameWithPhone_WhenSending_IsValid()
+        {
+            var form = ValidContactForm();
+            form.Phone = "+123";
+            //Arrange
+            var request = TestFactory.CreateHttpRequest(form);
+            //Act
+            var response = await GetResponse(request);
+            //Assert
+            AssertSuccess(response);
+        }
+
+        [TestMethod]
         public async Task GivenNameWithÑ_WhenSending_IsValid()
         {
             var form = ValidContactForm();

@@ -72,6 +72,8 @@ namespace api.Services
                 .Replace("&#xF1;", "ñ")
                 .Replace("&#xD1;", "Ñ")
 
+                .Replace("&#x2B;", "+")
+
                 .Replace("&#x27;", "'");
         }
     }
