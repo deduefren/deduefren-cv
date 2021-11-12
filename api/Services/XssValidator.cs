@@ -1,5 +1,7 @@
 ﻿using api.Exceptions;
-using System.Text.Encodings.Web;
+using System;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace api.Services
 {
@@ -12,69 +14,31 @@ namespace api.Services
                 return;
             }
 
-            var encoded = HtmlEncoder.Default.Encode(value);
-            encoded = AllowedChars(encoded);
-            if (value != encoded)
-
+            if (!ValidateAntiXSS(value))
             {
                 throw new XssException("Forbidden input. The following characters are not allowed: &, <, >, \", '");
             }
         }
 
-        public static string AllowedChars(string encoded)
+        //Some defense, but in the end output encode will be used later.
+        public static bool ValidateAntiXSS(string inputParameter)
         {
-            return encoded
-                .Replace("&#xE1;", "á")
-                .Replace("&#xE9;", "é")
-                .Replace("&#xED;", "í")
-                .Replace("&#xF3;", "ó")
-                .Replace("&#xFA;", "ú")
-                .Replace("&#xC1;", "Á")
-                .Replace("&#xC9;", "É")
-                .Replace("&#xCD;", "Í")
-                .Replace("&#xD3;", "Ó")
-                .Replace("&#xDA;", "Ú")
-                .Replace("&#xB4;", "´")
+            if (string.IsNullOrEmpty(inputParameter))
+                return true;
 
-                .Replace("&#xE2;", "â")
-                .Replace("&#xEA;", "ê")
-                .Replace("&#xEE;", "î")
-                .Replace("&#xF4;", "ô")
-                .Replace("&#xFB;", "û")
-                .Replace("&#xC2;", "Â")
-                .Replace("&#xCA;", "Ê")
-                .Replace("&#xCE;", "Î")
-                .Replace("&#xD4;", "Ô")
-                .Replace("&#xDB;", "Û")
+            // Following regex convers all the js events and html tags mentioned in followng links.
+            //https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet                 
+            //https://msdn.microsoft.com/en-us/library/ff649310.aspx
 
-                .Replace("&#xE0;", "à")
-                .Replace("&#xE8;", "è")
-                .Replace("&#xEC;", "ì")
-                .Replace("&#xF2;", "ò")
-                .Replace("&#xF9;", "ù")
-                .Replace("&#xC0;", "À")
-                .Replace("&#xC8;", "È")
-                .Replace("&#xCC;", "Ì")
-                .Replace("&#xD2;", "Ò")
-                .Replace("&#xD9;", "Ù")
+            var pattren = new StringBuilder();
 
-                .Replace("&#xE4;", "ä")
-                .Replace("&#xEB;", "ë")
-                .Replace("&#xEF;", "ï")
-                .Replace("&#xF6;", "ö")
-                .Replace("&#xFC;", "ü")
-                .Replace("&#xC4;", "Ä")
-                .Replace("&#xCB;", "Ë")
-                .Replace("&#xCF;", "Ï")
-                .Replace("&#xD6;", "Ö")
-                .Replace("&#xDC;", "Ü")
+            //Checks any js events i.e. onKeyUp(), onBlur(), alerts and custom js functions etc.             
+            pattren.Append(@"((alert|on\w+|function\s+\w+)\s*\(\s*(['+\d\w](,?\s*['+\d\w]*)*)*\s*\))");
 
-                .Replace("&#xF1;", "ñ")
-                .Replace("&#xD1;", "Ñ")
+            //Checks any html tags i.e. <script, <embed, <object etc.
+            pattren.Append(@"|(<(script|iframe|embed|frame|frameset|object|img|applet|body|html|style|layer|link|ilayer|meta|bgsound))");
 
-                .Replace("&#x2B;", "+")
-
-                .Replace("&#x27;", "'");
+            return !Regex.IsMatch(System.Web.HttpUtility.UrlDecode(inputParameter), pattren.ToString(), RegexOptions.IgnoreCase | RegexOptions.Compiled);
         }
     }
 }

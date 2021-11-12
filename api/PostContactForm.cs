@@ -63,8 +63,8 @@ namespace deduefrencv.postcontactform
                 XssValidator.ThrowIfForbiddenInput(form.Phone);
 
                 //Encode as countermeasure
-                string encodedName = XssValidator.AllowedChars(System.Net.WebUtility.HtmlEncode(form.Name));
-                string encodedEmail = XssValidator.AllowedChars(System.Net.WebUtility.HtmlEncode(form.Email));
+                string encodedName = System.Net.WebUtility.HtmlEncode(form.Name);
+                string encodedEmail = System.Net.WebUtility.HtmlEncode(form.Email);
                 string encodedPhone = System.Net.WebUtility.HtmlEncode(form.Phone);
                 string encodedMessage = System.Net.WebUtility.HtmlEncode(form.Message);
 

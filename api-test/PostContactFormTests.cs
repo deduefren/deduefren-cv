@@ -181,11 +181,49 @@ namespace api_test
             AssertInvalidArgument(response);
         }
 
-        [TestMethod]
-        public async Task GivenNameWithExclamation_WhenSending_IsValid()
+        /// <summary>
+        /// Valid input testing.
+        /// </summary>
+        [DataTestMethod]
+        [DataRow("Look https://es.wikipedia.org/wiki/Luke,_yo_soy_tu_padre")]
+        [DataRow("Luke, I`m your -father")]
+        [DataRow("Luke, I'm your father")]
+        [DataRow("À È Ì Ò Ù")]
+        [DataRow("à è ì ò ù `")]
+        [DataRow("Â Ê Î Ô Û")]
+        [DataRow("â ê î ô û ^")]
+        [DataRow("Á É Í Ó Ú")]
+        [DataRow("á é í ó ú ´")]
+        [DataRow("Ä Ë Ï Ö Ü")]
+        [DataRow("ä ë ï ö ü")]
+        [DataRow("Mas Cosas ñ Ñ")]
+        [DataRow("Mas  +123")]
+        [DataRow("hola a todos.")]
+        [DataRow("hola a todos!")]
+        [DataRow("Hola *****")]
+        [DataRow("¿Te gustaría unirte a nosotros?")]
+        [DataRow(@"¿Te gustaría unirte a nosotros? 
+
+Firmado yo")]
+        [DataRow(@"Soy Recruiter del departamento de talento.
+Nos gusta que el talento fluya por ello que ofrecemos teletrabajo 100%.
+
+Me gustaría conocer si te planteas una mejora profesional.
+
+Un saludo,
+
+Tecnico de Seleccion IT en XSDF")]
+        [DataRow(@"Estoy llevando la selección de un Desarrollador de Software con amplia experiencia en .NET y Azure (Functions, storage accounts, app service, Service bus, key vault, Devops, etc.), he visto que tienes formación en el tema u además eres Team Leader lo que es un plus. Es para una empresa final en Madrid que desarrolla soluciones de Inteligencia Artificial, bajo tecnologías Microsoft en Azure.
+
+Si quieres saber más pásame tu teléfono y disponibilidad para hablar.
+
+Un saludo!
+
+Talent Acquisition Expert & Career Coach/ IT & Digital Specialist")]
+        public async Task GivenMessage_WhenSending_IsValid(string message)
         {
             var form = ValidContactForm();
-            form.Name = "hola a todos!";
+            form.Message = message;
             //Arrange
             var request = TestFactory.CreateHttpRequest(form);
             //Act
@@ -195,179 +233,12 @@ namespace api_test
         }
 
         [TestMethod]
-        public async Task GivenNameWithDot_WhenSending_IsValid()
+        public async Task GivenMessage2_WhenSending_IsValid()
         {
             var form = ValidContactForm();
-            form.Name = "hola a todos.";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
+            form.Message = @"¿Te gustaría unirte a nosotros? 
 
-        [TestMethod]
-        public async Task GivenNameWithPhone_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Phone = "+123";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenNameWithÑ_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Name = "ñ Ñ";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenNameWithDieresis_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Name = "ä ë ï ö ü";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenNameWithUpperDieresis_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Name = "Ä Ë Ï Ö Ü";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenNameWithTilde_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Name = "á é í ó ú ´";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenNameWithUpperTilde_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Name = "Á É Í Ó Ú";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenFrenchWithCircunflexTilde_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Name = "â ê î ô û ^";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenFrenchWithCircunflexUpperTilde_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Name = "Â Ê Î Ô Û";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenFrenchWithGraveDiacritics_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Name = "à è ì ò ù `";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenFrenchWithUpperGraveDiacritics_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Name = "À È Ì Ò Ù";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenDescriptionWithHypens_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Message = "Luke, I'm your father";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenGraveHypen_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Message = "Luke, I`m your -father";
-            //Arrange
-            var request = TestFactory.CreateHttpRequest(form);
-            //Act
-            var response = await GetResponse(request);
-            //Assert
-            AssertSuccess(response);
-        }
-
-        [TestMethod]
-        public async Task GivenDescriptionWithUrl_WhenSending_IsValid()
-        {
-            var form = ValidContactForm();
-            form.Email = "Look https://es.wikipedia.org/wiki/Luke,_yo_soy_tu_padre";
+Firmado yo";
             //Arrange
             var request = TestFactory.CreateHttpRequest(form);
             //Act
@@ -434,7 +305,6 @@ namespace api_test
         [DataRow("<IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>")]
         [DataRow("<<SCRIPT>alert(\"XSS\");//\\<</SCRIPT>")]
         [DataRow("<iframe src=http://xss.rocks/scriptlet.html <")]
-        [DataRow("Set.constructor`alert\x28document.domain\x29")]
         public async Task GivenXSSMessage_WhenSending_Ignored(string xssMessage)
         {
             //Arrange
