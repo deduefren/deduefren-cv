@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,7 @@ import { Validators } from '@angular/forms';
 export class ContactFormComponent implements OnInit {
 
   //TODO: Link validations with markup.
-  contactForm: FormGroup = this.fb.group({
+  contactForm: UntypedFormGroup = this.fb.group({
     name: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(80)])],
     email: ['', Validators.compose([Validators.required, Validators.email])],
     phone: ['', Validators.maxLength(15)],
@@ -20,7 +20,7 @@ export class ContactFormComponent implements OnInit {
   statusCode = null;
   error = null;
   
-  constructor(private fb: FormBuilder, private http: HttpClient) { 
+  constructor(private fb: UntypedFormBuilder, private http: HttpClient) { 
   }
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class ContactFormComponent implements OnInit {
     });
   }
 
-  resetForm(form: FormGroup) {
+  resetForm(form: UntypedFormGroup) {
 
     form.reset();
 
