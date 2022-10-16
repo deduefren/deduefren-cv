@@ -19,6 +19,10 @@
         "title":"Portfolio",
         "subtitle": "Lorem ipsum dolor sit amet consectetur."
     },
+    "certifications": {
+        "title":"Certificaciones",
+        "subtitle": "Listado de certificaciones obtenidas."
+    },
     "career": {
         "title": "Experiencia",
         "subtitle": "Un resumen de los momentos importantes de mi carrera profesional",

@@ -1,293 +1,446 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-        <span class="navbar-brand">deduefren</span>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars ms-1"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#aboutme">{{ 'about.title' | translate }}</a></li>
-                <li class="nav-item"><a class="nav-link" href="#career">{{ 'career.title' | translate }}</a></li>
-                <!--<li class="nav-item"><a class="nav-link" href="#portfolio">{{ 'portfolio.title' | translate }}</a></li>-->
-                <li class="nav-item"><a class="nav-link" href="#contact">{{ 'contact.title' | translate }}</a></li>
-            </ul>
-        </div>
+  <div class="container">
+    <span class="navbar-brand">deduefren</span>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      Menu
+      <i class="fas fa-bars ms-1"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#aboutme">{{
+            "about.title" | translate
+          }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#career">{{
+            "career.title" | translate
+          }}</a>
+        </li>
+        <!--<li class="nav-item"><a class="nav-link" href="#portfolio">{{ 'portfolio.title' | translate }}</a></li>-->
+        <li class="nav-item">
+          <a class="nav-link" href="#certifications">{{
+            "certifications.title" | translate
+          }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">{{
+            "contact.title" | translate
+          }}</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 <!-- Masthead-->
 <header class="masthead">
-    <div class="container">
-        <div class="masthead-subheading">{{ 'landing.welcome' | translate}}</div>
-        <div class="row">
-            <div class="col">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="..." />
-                    <h4>Daniel Efr&eacute;n D&iacute;az Ureta</h4>
-                    <p class="text-muted">{{ 'landing.job-title' | translate}}</p>
-                    <a class="btn btn-primary btn-social mx-2" href="https://www.linkedin.com/in/deduefren/"
-                        target="_blank" rel="noreferrer noopener" ><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-primary btn-social mx-2" href="https://twitter.com/deduefren" target="_blank" rel="noreferrer noopener" ><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="btn btn-primary btn-social mx-2" href="https://www.instagram.com/deduefren/"
-                        target="_blank" rel="noreferrer noopener" ><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-primary btn-social mx-2" href="https://www.flickr.com/people/danielefren/" target="_blank" rel="noreferrer noopener" ><i
-                            class="fab fa-flickr"></i></a>
-                </div>
-            </div>
+  <div class="container">
+    <div class="masthead-subheading">{{ "landing.welcome" | translate }}</div>
+    <div class="row">
+      <div class="col">
+        <div class="team-member">
+          <img
+            class="mx-auto rounded-circle"
+            src="assets/img/team/1.jpg"
+            alt="..."
+          />
+          <h4>Daniel Efr&eacute;n D&iacute;az Ureta</h4>
+          <p class="text-muted">{{ "landing.job-title" | translate }}</p>
+          <a
+            class="btn btn-primary btn-social mx-2"
+            href="https://www.linkedin.com/in/deduefren/"
+            target="_blank"
+            rel="noreferrer noopener"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a
+            class="btn btn-primary btn-social mx-2"
+            href="https://twitter.com/deduefren"
+            target="_blank"
+            rel="noreferrer noopener"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a
+            class="btn btn-primary btn-social mx-2"
+            href="https://www.instagram.com/deduefren/"
+            target="_blank"
+            rel="noreferrer noopener"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            class="btn btn-primary btn-social mx-2"
+            href="https://www.flickr.com/people/danielefren/"
+            target="_blank"
+            rel="noreferrer noopener"
+            ><i class="fab fa-flickr"></i
+          ></a>
         </div>
+      </div>
     </div>
+  </div>
 </header>
 <!-- About me-->
 <section class="page-section" id="aboutme">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">{{ 'about.title' | translate }}</h2>
-            <h3 class="section-subheading text-muted">{{ 'about.subtitle' | translate }}</h3>
-        </div>
-        <div class="row text-center">
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fab fa-leanpub fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="my-3">{{'about.learning-title' | translate}}</h4>
-                <p class="text-muted">{{'about.learning-description' | translate}}</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="my-3">{{'about.net-title' | translate}}</h4>
-                <p class="text-muted">{{'about.net-description' | translate}}</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-cloud fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="my-3">{{'about.backend-title' | translate}}</h4>
-                <p class="text-muted">{{'about.backend-description' | translate}}</p>
-            </div>
-        </div>
-        <div class="row text-center justify-content-center">
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-heart fa-stack-1x fa-inverse"></i>
-                </span>
-                <h4 class="my-3">{{'about.passion-title' | translate}}</h4>
-                <p class="text-muted">{{'about.passion-description' | translate}}</p>
-            </div>
-        </div>
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">
+        {{ "about.title" | translate }}
+      </h2>
+      <h3 class="section-subheading text-muted">
+        {{ "about.subtitle" | translate }}
+      </h3>
     </div>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fab fa-leanpub fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="my-3">{{ "about.learning-title" | translate }}</h4>
+        <p class="text-muted">{{ "about.learning-description" | translate }}</p>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="my-3">{{ "about.net-title" | translate }}</h4>
+        <p class="text-muted">{{ "about.net-description" | translate }}</p>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-cloud fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="my-3">{{ "about.backend-title" | translate }}</h4>
+        <p class="text-muted">{{ "about.backend-description" | translate }}</p>
+      </div>
+    </div>
+    <div class="row text-center justify-content-center">
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-heart fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="my-3">{{ "about.passion-title" | translate }}</h4>
+        <p class="text-muted">{{ "about.passion-description" | translate }}</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Career-->
 <section class="page-section" id="career">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">{{ 'career.title' | translate}}</h2>
-            <h3 class="section-subheading text-muted">{{ 'career.subtitle' | translate}}</h3>
-        </div>
-        <ul class="timeline">
-            <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" style="background-color: white;"
-                        src="assets/img/about/13.png" alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item13.date' | translate }}</h4>
-                        <h4 class="subheading">{{ 'career.item13.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item13.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Plain Concepts-->
-            <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" style="background-color: white;"
-                        src="assets/img/about/12.jpg" alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item12.date' | translate }}</h4>
-                        <h4 class="subheading">{{ 'career.item12.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item12.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-
-            <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" style="background-color: white;"
-                        src="assets/img/about/11.png" alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item11.date' | translate }}</h4>
-                        <h4 class="subheading">{{ 'career.item11.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item11.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-
-            <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" style="background-color: white;"
-                        src="assets/img/about/10.png" alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item10.date' | translate }}</h4>
-                        <h4 class="subheading">{{ 'career.item10.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item10.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/9.jpg"
-                        alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item9.date' | translate }}</h4>
-                        <h4 class="subheading">{{ 'career.item9.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item9.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-            <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/8.jpg"
-                        alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item8.date' | translate }}</h4>
-                        <h4 class="subheading">{{ 'career.item8.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item8.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/7.jpg"
-                        alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item7.date' | translate }}</h4>
-                        <h4 class="subheading">{{ 'career.item7.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item7.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-            <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/6.jpg"
-                        alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item6.date' | translate }}</h4>
-                        <h4 class="subheading">{{ 'career.item6.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item6.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/5.jpg"
-                        alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item5.date' | translate }}</h4>
-                        <h4 class="subheading">{{ 'career.item5.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item5.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-            <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg"
-                        alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item4.date' | translate }}</h4>
-                        <h4 class="subheading">{{ 'career.item4.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item4.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg"
-                        alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item3.date' | translate }}</h4>
-                        <h4 class="subheading">{{ 'career.item3.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item3.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-            <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg"
-                        alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>{{ 'career.item2.date' | translate }}</h4>
-                        <h4 class="subheading">{{'career.item2.title' | translate}}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{'career.item2.description' | translate}}</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg"
-                        alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>2011-2013</h4>
-                        <h4 class="subheading">{{ 'career.item1.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item1.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-            <li class="timeline-inverted">
-                <div class="timeline-image">
-                    <h4>
-                        {{ 'career.ending-line1' | translate }}
-                        <br>
-                        {{ 'career.ending-line2' | translate }}
-                        <br>
-                        {{ 'career.ending-line3' | translate }}
-                    </h4>
-                </div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4 class="subheading">{{ 'career.item0.title' | translate }}</h4>
-                    </div>
-                    <div class="timeline-body">
-                        <p class="text-muted">{{ 'career.item0.description' | translate }}</p>
-                    </div>
-                </div>
-            </li>
-        </ul>
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">
+        {{ "career.title" | translate }}
+      </h2>
+      <h3 class="section-subheading text-muted">
+        {{ "career.subtitle" | translate }}
+      </h3>
     </div>
+    <ul class="timeline">
+      <li>
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            style="background-color: white"
+            src="assets/img/about/13.png"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item13.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item13.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item13.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <!-- Plain Concepts-->
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            style="background-color: white"
+            src="assets/img/about/12.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item12.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item12.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item12.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            style="background-color: white"
+            src="assets/img/about/11.png"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item11.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item11.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item11.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            style="background-color: white"
+            src="assets/img/about/10.png"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item10.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item10.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item10.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/about/9.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item9.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item9.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item9.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/about/8.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item8.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item8.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item8.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/about/7.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item7.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item7.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item7.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/about/6.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item6.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item6.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item6.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/about/5.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item5.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item5.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item5.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/about/4.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item4.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item4.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item4.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/about/3.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item3.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item3.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item3.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/about/2.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>{{ "career.item2.date" | translate }}</h4>
+            <h4 class="subheading">{{ "career.item2.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item2.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-image">
+          <img
+            class="rounded-circle img-fluid"
+            src="assets/img/about/1.jpg"
+            alt="..."
+          />
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4>2011-2013</h4>
+            <h4 class="subheading">{{ "career.item1.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item1.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-image">
+          <h4>
+            {{ "career.ending-line1" | translate }}
+            <br />
+            {{ "career.ending-line2" | translate }}
+            <br />
+            {{ "career.ending-line3" | translate }}
+          </h4>
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="subheading">{{ "career.item0.title" | translate }}</h4>
+          </div>
+          <div class="timeline-body">
+            <p class="text-muted">
+              {{ "career.item0.description" | translate }}
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </section>
 
 <!-- Portfolio Grid
@@ -348,21 +501,615 @@
 </section>
 -->
 
+<section class="page-section bg-light" id="certifications">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">
+        {{ "certifications.title" | translate }}
+      </h2>
+      <h3 class="section-subheading text-muted">
+        {{ "certifications.subtitle" | translate }}
+      </h3>
+    </div>
+    <div class="row">
+      <div
+        class="data-table data-table-grid data-table__tweak-no-margin"
+        data-webdriver-data_table_loading=""
+      >
+        <div class="data-table__header-container">
+          <div class="data-table-header data-table-header--default"></div>
+        </div>
+        <div class="data-table__rows data-table-grid__rows">
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="Kusto Detective Agency - Case #3 Badge"
+                href="https://www.credly.com/badges/ff547189-6de7-4b87-b3ff-9e4a0587e57a/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/9e9311e6-911b-4193-86ae-9b80c8b410fe/image.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        Kusto Detective Agency - Case #3 Badge
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft Azure Data Explorer
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="Kusto Detective Agency - Case #2 Badge"
+                href="https://www.credly.com/badges/2b17c561-85db-4f61-8e44-3214b6487e06/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/ba8eb12f-2d57-4e9c-b1da-c395bd1d7fd3/image.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        Kusto Detective Agency - Case #2 Badge
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft Azure Data Explorer
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="Kusto Detective Agency - Case #1 Badge"
+                href="https://www.credly.com/badges/160113d8-46bc-45bd-8410-c583bfdfa3bd/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/14d53c52-2701-4045-9f89-e5e510eee2fd/image.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        Kusto Detective Agency - Case #1 Badge
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft Azure Data Explorer
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="Kusto Detective Agency - Onboarding"
+                href="https://www.credly.com/badges/05b498fe-1f5f-49aa-a115-7ed53c769cf0/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/84201552-025f-4b97-81c4-55be4ba896ff/image.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        Kusto Detective Agency - Onboarding
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft Azure Data Explorer
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="Microsoft Certified: Azure AI Fundamentals"
+                href="https://www.credly.com/badges/4102d1fd-ae18-4e75-9c60-4779a1d1510f/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/4136ced8-75d5-4afb-8677-40b6236e2672/azure-ai-fundamentals-600x600.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        Microsoft Certified: Azure AI Fundamentals
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="Microsoft Certified: Azure Data Fundamentals"
+                href="https://www.credly.com/badges/0162a09d-49e1-4c05-86aa-7d52606c5c9a/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/70eb1e3f-d4de-4377-a062-b20fb29594ea/azure-data-fundamentals-600x600.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        Microsoft Certified: Azure Data Fundamentals
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="Microsoft Certified: Power Platform Fundamentals"
+                href="https://www.credly.com/badges/43bfaf4c-fbd4-43c0-9cbb-68bd97a07450/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/2a6251f2-737b-4bf6-9190-d77570cc76fc/CERT-Fundamentals-Power-Platform.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        Microsoft Certified: Power Platform Fundamentals
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="AZ-400: Designing and Implementing Microsoft DevOps Solutions"
+                href="https://www.credly.com/badges/365e5531-1337-45e7-b4f2-151365999016/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/107e2eb6-f394-40eb-83d2-d8c9b7d34555/exam-az400-600x600.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        AZ-400: Designing and Implementing Microsoft DevOps
+                        Solutions
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="Microsoft Certified: DevOps Engineer Expert"
+                href="https://www.credly.com/badges/5b409fa1-9775-443d-92d4-54cb341c36d8/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/c3ab66f8-5d59-4afa-a6c2-0ba30a1989ca/CERT-Expert-DevOps-Engineer-600x600.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        Microsoft Certified: DevOps Engineer Expert
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="Microsoft Certified: Azure Developer Associate"
+                href="https://www.credly.com/badges/bca38b48-dc78-443a-9f6f-d335b765b436/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/63316b60-f62d-4e51-aacc-c23cb850089c/azure-developer-associate-600x600.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        Microsoft Certified: Azure Developer Associate
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="MCSA: Web Applications - Certified 2019"
+                href="https://www.credly.com/badges/ba057773-1bd9-42e9-91d7-a6aa264ceb03/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/083da79c-cc92-4709-b8dc-aa50583a355c/MCSA-Web-Applications-2019.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        MCSA: Web Applications - Certified 2019
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="Exam 486: Developing ASP.NET MVC Web Applications"
+                href="https://www.credly.com/badges/9c735927-76fb-4c87-b683-5d1f7abafdc8/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/cbab3216-025d-4601-86ee-c5970b348d48/Developing_ASP.NET_MVC_Web_Applications-01.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        Exam 486: Developing ASP.NET MVC Web Applications
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="MCSD: App Builder — Certified 2019"
+                href="https://www.credly.com/badges/5567acc0-7399-471b-a1d2-d12b019db180/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/33afb7c7-f2b9-401a-b81c-9ca736f4cd68/MCSD-App-Builder-2019.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        MCSD: App Builder — Certified 2019
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin"
+          >
+            <div
+              class="col data-table-content data-table-content__no-margin data-table-content-grid"
+            >
+              <a
+                class="cr-earned-badge-grid-item c-grid-item"
+                title="Exam 483: Programming in C#"
+                href="https://www.credly.com/badges/a94f713e-62b1-47ba-b995-60d8526d39de/public_url"
+                ><div class="cr-earned-badge-grid-item__badge-container">
+                  <div
+                    class="cr-standard-grid-item-content c-badge c-badge--medium"
+                  >
+                    <img
+                      class="cr-standard-grid-item-content__image"
+                      src="https://images.credly.com/size/110x110/images/78e39333-d0db-4931-b231-13bdb37040cc/Programming_in_C_23-01.png"
+                      width="110"
+                      alt=""
+                      height="110"
+                    />
+                    <div class="cr-standard-grid-item-content__details">
+                      <div
+                        class="cr-standard-grid-item-content__title clamp-lines__css-clamp"
+                        style="max-height: 104px; -webkit-line-clamp: 4"
+                      >
+                        Exam 483: Programming in C#
+                      </div>
+                      <div
+                        class="cr-standard-grid-item-content__subtitle clamp-lines__css-clamp"
+                        style="max-height: 38px; -webkit-line-clamp: 2"
+                      >
+                        Microsoft
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin data-table-row--blank-fill function(e){var t=a.map((function(t){return&quot;function&quot;===typeof t?t(e):t}));return Object(i.l)(t)}"
+            aria-hidden="true"
+          ></div>
+          <div
+            class="data-table-row data-table-row-grid data-table-row__tweak-no-margin data-table-row--blank-fill function(e){var t=a.map((function(t){return&quot;function&quot;===typeof t?t(e):t}));return Object(i.l)(t)}"
+            aria-hidden="true"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Contact-->
 <section class="page-section" id="contact">
-    <app-contact-form></app-contact-form>
+  <app-contact-form></app-contact-form>
 </section>
 <!-- Footer-->
 <footer class="footer py-4">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-12 ">deduefren 2021</div>
-            <!--text-lg-start<div class="col-lg-6 text-lg-end">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-12">deduefren 2021</div>
+      <!--text-lg-start<div class="col-lg-6 text-lg-end">
                 <a class="link-dark text-decoration-none me-2" href="#!">{{ 'privacy-policy' | translate}}</a>
                 <a class="link-dark text-decoration-none" href="#!">{{ 'use-terms' | translate}}</a>
             </div>-->
-        </div>
     </div>
+  </div>
 </footer>
 
 <!-- Portfolio Modals
