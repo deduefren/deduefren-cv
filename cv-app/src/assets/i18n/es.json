@@ -83,7 +83,7 @@
         "phone-validation-length": "El teléfono debe tener una longitud máxima de 15 caracteres.",
         "message": "Tu mensaje *",
         "message-validation" : "Es obligatorio introducir un mensaje.",
-        "message-validation-length": "El email debe tener una longitud entre 5 y 1000 caracteres.",
+        "message-validation-length": "El mensaje debe tener una longitud entre 5 y 1000 caracteres.",
         "send-button": "Enviar",
         "send-error": "Error enviando el mensaje.",
         "send-success": "Mensaje enviado correctamente.",

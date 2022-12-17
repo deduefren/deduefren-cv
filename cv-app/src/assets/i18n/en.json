@@ -21,7 +21,7 @@
     },
     "certifications": {
         "title":"Certifications",
-        "subtitle": "List of certifications I've achieved"
+        "subtitle": "List of certifications achieved"
     },
     "career": {
         "title": "Experience",
@@ -83,7 +83,7 @@
         "phone-validation-length": "Phone must have a maximum  length of 15 characters.",
         "message": "Your message *",
         "message-validation" : "Your message is required.",
-        "message-validation-length": "Email must have a length between 5 and 1000 characters.",
+        "message-validation-length": "Message must have a length between 5 and 1000 characters.",
         "send-button": "Send",
         "send-error": "Message send failed.",
         "send-success": "Message successfully sent.",
