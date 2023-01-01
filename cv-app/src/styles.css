@@ -386,10 +386,10 @@ legend {
   legend {
     font-size: 1.5rem;
   }
-}
+}/*
 legend + * {
   clear: left;
-}
+}*/
 
 ::-webkit-datetime-edit-fields-wrapper,
 ::-webkit-datetime-edit-text,
@@ -1940,6 +1940,7 @@ progress {
   vertical-align: top;
   border-color: #dee2e6;
 }
+/*
 .table > :not(caption) > * > * {
   padding: 0.5rem 0.5rem;
   background-color: var(--bs-table-bg);
@@ -1955,7 +1956,7 @@ progress {
 .table > :not(:last-child) > :last-child > * {
   border-bottom-color: currentColor;
 }
-
+*/
 .caption-top {
   caption-side: top;
 }

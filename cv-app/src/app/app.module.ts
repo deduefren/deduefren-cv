@@ -20,7 +20,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ContactFormComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
