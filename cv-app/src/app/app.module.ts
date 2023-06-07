@@ -9,6 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { translateBrowserLoaderFactory } from 'src/loaders/translate-browser.loader';
+import { AboutMeComponent } from './about-me/about-me.component';
+import { CareerComponent } from './career/career.component';
+import { CertificationsComponent } from './certifications/certifications.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -16,9 +20,17 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, ContactFormComponent],
+  declarations: [
+    AppComponent,
+    ContactFormComponent,
+    AboutMeComponent,
+    CareerComponent,
+    CertificationsComponent,
+    HomePageComponent,
+  ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
