@@ -39,7 +39,7 @@
     "@nguniversal/builders": "^16.1.2",
     "@types/express": "^4.17.0",
     "@types/jasmine": "^4.3.5",
-    "@types/node": "^20.4.9",
+    "@types/node": "^20.5.1",
     "codelyzer": "^6.0.2",
     "jasmine-core": "~5.1.0",
     "jasmine-spec-reporter": "~7.0.0",
