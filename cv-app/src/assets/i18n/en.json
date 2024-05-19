@@ -1,11 +1,11 @@
 {
     "landing": {
         "welcome": "¡Welcome to my site!",
-        "job-title" : "Technical/Team Leader"
+        "job-title" : "Software Development Engineer"
     },
     "about": {
         "title":"About me",
-        "subtitle": "Technology and photography lover. Technical/Team Leader en Clarcat. ITI student at UNED.",
+        "subtitle": "Technology and photography lover. Software Development Engineer - Sidra Data Platform. ITI student at UNED.",
         "learning-title" : "Learning",
         "learning-description" : "Strong learning and problem solving abilities. Throughout my career I have faced a great number of challenges, which has allowed me to develop a working method that accelerates the learning and understanding process.",
         "net-title" : "Backend and C#",
@@ -18,6 +18,10 @@
     "portfolio": {
         "title":"Portfolio",
         "subtitle": "Lorem ipsum dolor sit amet consectetur."
+    },
+    "certifications": {
+        "title":"Certifications",
+        "subtitle": "List of certifications achieved"
     },
     "career": {
         "title": "Experience",
@@ -56,6 +60,12 @@
         "item11.title": "Microsoft Azure DevOps Engineer Certification",
         "item11.date": "May 2021",
         "item11.description": "I complete the Developer certification with the specific part of DevOps giving me a better knowledge of the Azure environment.",
+        "item12.title": "I join Sidra",
+        "item12.date": "May 2022",
+        "item12.description": "Looking to advance in my career I join Sidra Data Platform team as a Software Development Engineer.",
+        "item13.title": "Microsoft Azure Fundamentals Certifications",
+        "item13.date": "June 2022",
+        "item13.description": "I obtain three Fundamentals Certifications (AI, Data y Power Plataform) and continue improving my knowledge of Azure's Platform.",
         "ending-line1": "",
         "ending-line2": "Beginnings",
         "ending-line3": ""
@@ -73,7 +83,7 @@
         "phone-validation-length": "Phone must have a maximum  length of 15 characters.",
         "message": "Your message *",
         "message-validation" : "Your message is required.",
-        "message-validation-length": "Email must have a length between 5 and 1000 characters.",
+        "message-validation-length": "Message must have a length between 5 and 1000 characters.",
         "send-button": "Send",
         "send-error": "Message send failed.",
         "send-success": "Message successfully sent.",
