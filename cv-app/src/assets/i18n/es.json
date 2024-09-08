@@ -91,6 +91,10 @@
         "InvalidArgument": "Se han introducido argumentos inválidos, asegúrese de rellenar el formulario correctamente.",
         "MissingArgument": "Faltan argumentos obligatorios, asegúrese de rellenar: Nombre, Email y Mensaje."
     },
+    "blog": {
+        "title": "Blog",
+        "subtitle": "Artículos sobre tecnología y programación."
+    },
     "privacy-policy": "Política de Privacidad",
     "use-terms": "Terminos de Uso"
 }

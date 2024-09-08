@@ -91,6 +91,10 @@
         "InvalidArgument": "Some arguments were invalid, please make sure to properly fill out the form.",
         "MissingArgument": "Missing required fields, please fill out: Name, Email and Message."
     },
+    "blog": {
+        "title": "Blog",
+        "subtitle": "Articles and posts about technology and programming"
+    },
     "privacy-policy": "Privacy Policy",
     "use-terms": "Use terms"
 }
