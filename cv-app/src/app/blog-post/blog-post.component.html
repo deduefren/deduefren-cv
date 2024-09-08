@@ -1,0 +1,9 @@
+<!-- Structure of a post with Title, Date and content -->
+<div class="container post-container collapsible" (click)="toggleCollapse()">
+  <h2 class="post-title">{{post.title}}</h2>
+  <p class="post-date">{{ post.date | date:'shortDate' }} at {{ post.date | date:'shortTime' }}</p>
+  <p class="post-content">{{ post.hint }}</p>
+  <!-- Show the excerpt or the markdown component-->
+  <div *ngIf="collapsed" class="read-more">Read more...</div>
+  <markdown *ngIf="!collapsed" [src]="'assets/articles/file.md'"></markdown>
+</div>
