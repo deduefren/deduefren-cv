@@ -8,10 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve:ssr:cv-app": "node dist/cv-app/server/server.mjs",
-    "serve:ssr": "node dist/cv-app/server/main.js",
-    "build:ssr": "ng build && ng run cv-app:server",
-    "prerender": "ng run cv-app:prerender"
+    "build:ssr": "ng build && ng run cv-app:server"
   },
   "engines": {
     "node": ">=18.13.0"
