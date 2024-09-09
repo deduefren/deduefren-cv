@@ -5,7 +5,7 @@
     },
     "about": {
         "title":"About me",
-        "subtitle": "Technology and photography lover. Software Development Engineer - Sidra Data Platform. ITI student at UNED.",
+        "subtitle": "Technology and photography lover. Software Development Engineer - Plain Concepts. ITI student at UNED.",
         "learning-title" : "Learning",
         "learning-description" : "Strong learning and problem solving abilities. Throughout my career I have faced a great number of challenges, which has allowed me to develop a working method that accelerates the learning and understanding process.",
         "net-title" : "Backend and C#",
@@ -93,7 +93,8 @@
     },
     "blog": {
         "title": "Blog",
-        "subtitle": "Articles and posts about technology and programming"
+        "subtitle": "Articles and posts about technology and programming",
+        "search": "Search"
     },
     "privacy-policy": "Privacy Policy",
     "use-terms": "Use terms"

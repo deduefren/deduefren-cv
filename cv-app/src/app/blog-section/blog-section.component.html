@@ -1,21 +1,18 @@
 
 <!-- A header for my blog entries with a search box that will search on the html entries (blog-post component)-->
 <div class="container">
-    <div class="text-center">
-        <h2
-          class="section-heading text-uppercase"
-          style="overflow-wrap: break-word"
-        >
-          {{ "blog.title" | translate }}
-        </h2>
-        <h3 class="section-subheading text-muted">
-          {{ "blog.subtitle" | translate }}
-        </h3>
-      </div>
-      <div class="search-bar-container">
-      <div class="search-bar">
-        <input type="text" class="form-control search-bar" placeholder="Search" (keyup)="search($event)">
-      </div>
+  <div class="text-center">
+    <h2 class="section-heading text-uppercase" style="overflow-wrap: break-word">
+      {{ "blog.title" | translate }}
+    </h2>
+    <h3 class="section-subheading text-muted">
+      {{ "blog.subtitle" | translate }}
+    </h3>
+  </div>
+  <div class="search-bar-container">
+    <div class="search-bar">
+      <input type="text" class="form-control search-bar" placeholder="{{ 'blog.search' | translate}}" (keyup)="search($event)">
     </div>
-  <app-blog-post *ngFor="let post of posts" [post]="post"></app-blog-post>  
+  </div>
+  <app-blog-post *ngFor="let post of displayedPosts" [post]="post"></app-blog-post>
 </div>

@@ -9,27 +9,33 @@ export class BlogSectionComponent {
 
   // Bind to the search event
   search(event: any) {
-    console.log(event);
+    if (event.target.value) {
+      this.displayedPosts = this.posts.filter(post => post.title.toLowerCase().includes(event.target.value.toLowerCase()));
+    } else {
+      this.displayedPosts = this.posts;
+    }
   }
 
   posts = [
     {
       title: 'Chat GPT Toolkit',
       date: new Date('2021-01-01'),
-      hint: 'A toolkit for building conversational agents',
+      hint: 'This is the content of post 1 which is based on a new toolkit for Chat GPT. The toolkit includes various features that enhance the capabilities of Chat GPT.',
       filePath: 'assets/articles/file.md'
     },
     {
       title: 'AI Advancements',
       date: new Date('2021-02-01'),
-      hint: 'The latest advancements in AI',
+      hint: 'This is the content of post 1 which is based on a new toolkit for Chat GPT. The toolkit includes various features that enhance the capabilities of Chat GPT.',
       filePath: 'assets/articles/file.md'
     },
     {
       title: 'Machine Learning Impact',
       date: new Date('2021-03-01'),
-      hint: 'The impact of machine learning on society',
+      hint: 'This is the content of post 1 which is based on a new toolkit for Chat GPT. The toolkit includes various features that enhance the capabilities of Chat GPT.',
       filePath: 'assets/articles/file.md'
     }
   ];
+
+  displayedPosts = this.posts;
 }
