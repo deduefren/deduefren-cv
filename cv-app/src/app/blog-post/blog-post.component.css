@@ -1,0 +1,40 @@
+/* Add styles for the collapsible content */
+.post-container.collapsible {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.post-container.collapsible:hover {
+    background-color: #f9f9f9;
+}
+
+.post-title {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.post-date {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.post-content {
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+}
+
+.post-container.collapsed .post-content {
+    max-height: 3em; /* Adjust this value to show a little bit of the content */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.read-more {
+    color: #ffc800;
+    cursor: pointer;
+}

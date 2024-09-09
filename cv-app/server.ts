@@ -1,37 +1,33 @@
-import 'zone.js/node';
-
 import { APP_BASE_HREF } from '@angular/common';
 import { CommonEngine } from '@angular/ssr';
-import * as express from 'express';
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
-import { AppServerModule } from './src/main.server';
+import express from 'express';
+import { fileURLToPath } from 'node:url';
+import { dirname, join, resolve } from 'node:path';
+import AppServerModule from './src/main.server';
+import { provideMarkdown } from 'ngx-markdown';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist/cv-app/browser');
-  const indexHtml = existsSync(join(distFolder, 'index.original.html'))
-    ? join(distFolder, 'index.original.html')
-    : join(distFolder, 'index.html');
+  const serverDistFolder = dirname(fileURLToPath(import.meta.url));
+  const browserDistFolder = resolve(serverDistFolder, '../browser');
+  const indexHtml = join(serverDistFolder, 'index.server.html');
 
   const commonEngine = new CommonEngine();
 
   server.set('view engine', 'html');
-  server.set('views', distFolder);
+  server.set('views', browserDistFolder);
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
   // Serve static files from /browser
-  server.get(
-    '*.*',
-    express.static(distFolder, {
-      maxAge: '1y',
-    })
-  );
+  server.get('**', express.static(browserDistFolder, {
+    maxAge: '1y',
+    index: 'index.html',
+  }));
 
   // All regular routes use the Angular engine
-  server.get('*', (req, res, next) => {
+  server.get('**', (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req;
 
     commonEngine
@@ -39,8 +35,8 @@ export function app(): express.Express {
         bootstrap: AppServerModule,
         documentFilePath: indexHtml,
         url: `${protocol}://${headers.host}${originalUrl}`,
-        publicPath: distFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
+        publicPath: browserDistFolder,
+        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }, provideMarkdown()],
       })
       .then((html) => res.send(html))
       .catch((err) => next(err));

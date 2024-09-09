@@ -6,7 +6,7 @@ import {
   makeStateKey,
   StateKey,
   TransferState,
-} from '@angular/platform-browser';
+} from '@angular/core';
 import * as fs from 'fs';
 
 export class TranslateServerLoader implements TranslateLoader {

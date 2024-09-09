@@ -1,0 +1,15 @@
+
+/* style the container with collapsible childs*/
+
+
+.search-bar-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 10px 0;
+}
+
+/* Style search bar on the right side of the h1 title */
+.search-bar {    
+    max-width: 400px;
+}
