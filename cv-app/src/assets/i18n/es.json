@@ -5,7 +5,7 @@
     },
     "about": {
         "title":"Sobre mí",
-        "subtitle": "Amante de la tecnología y la fotografía. Software Development Engineer - Sidra Data Platform. Estudiante ITI en UNED.",
+        "subtitle": "Amante de la tecnología y la fotografía. Software Development Engineer - Plain Concepts. Estudiante ITI en UNED.",
         "learning-title" : "Aprendizaje",
         "learning-description" : "Capacidad para aprender y resolver problemas. A lo largo de mi carrera me he enfrentado a gran cantidad de retos lo que me ha permitido desarrollar un método de trabajo que acelera el proceso de aprendizaje y comprensión.",
         "net-title" : "Backend y C#",
@@ -90,6 +90,11 @@
         "InvalidInput": "Se ha introducido una entrada inválida, por favor asegúrese de no introducir caracteres especiales o etiquetas html.",
         "InvalidArgument": "Se han introducido argumentos inválidos, asegúrese de rellenar el formulario correctamente.",
         "MissingArgument": "Faltan argumentos obligatorios, asegúrese de rellenar: Nombre, Email y Mensaje."
+    },
+    "blog": {
+        "title": "Blog",
+        "subtitle": "Artículos sobre tecnología y programación.",
+        "search": "Buscar"
     },
     "privacy-policy": "Política de Privacidad",
     "use-terms": "Terminos de Uso"

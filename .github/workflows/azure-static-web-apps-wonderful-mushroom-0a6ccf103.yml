@@ -23,6 +23,11 @@ jobs:
         with:
           submodules: true
 
+      - name: Install Dotnet 6
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+
       - name: Install dependencies
         run: dotnet restore api
 
@@ -44,7 +49,7 @@ jobs:
           app_location: "cv-app" # App source code path
           api_location: "api" # Api source code path - optional
           output_location: "dist/cv-app/browser" # Built app content directory - optional
-          app_build_command: "npm run prerender"
+          app_build_command: "npm run build"
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
