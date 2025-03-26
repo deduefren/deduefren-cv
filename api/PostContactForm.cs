@@ -32,6 +32,7 @@ namespace deduefrencv.postcontactform
             )
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
+            ContactForm form = null;
             try
             {
                 if (req.Body.Length == 0)
@@ -39,7 +40,7 @@ namespace deduefrencv.postcontactform
                     return new JsonResult(Result.MissingArguments());
                 }
                 string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var form = JsonConvert.DeserializeObject<ContactForm>(requestBody);
+                form = JsonConvert.DeserializeObject<ContactForm>(requestBody);
 
                 //Validate mandatory fields
                 if (string.IsNullOrEmpty(form.Name))
@@ -62,42 +63,69 @@ namespace deduefrencv.postcontactform
                 XssValidator.ThrowIfForbiddenInput(form.Message);
                 XssValidator.ThrowIfForbiddenInput(form.Phone);
 
-                //Encode as countermeasure
-                string encodedName = System.Net.WebUtility.HtmlEncode(form.Name);
-                string encodedEmail = System.Net.WebUtility.HtmlEncode(form.Email);
-                string encodedPhone = System.Net.WebUtility.HtmlEncode(form.Phone);
-                string encodedMessage = System.Net.WebUtility.HtmlEncode(form.Message);
-
                 //Get and format mail template
                 var html = File.ReadAllText(context.FunctionAppDirectory + "/MailTemplate.html");
-                html = FormatTemplate(html, nameof(form.Name), encodedName);
-                html = FormatTemplate(html, nameof(form.Email), encodedEmail);
-                html = FormatTemplate(html, nameof(form.Phone), encodedPhone);
-                html = FormatTemplate(html, nameof(form.Message), encodedMessage);
-
-                //Build message and send
-                var message = new SendGridMessage();
-                message.AddTo(configuration.ContactMailDestination);
-                message.SetFrom(new EmailAddress(configuration.ContactMailSender));
-                message.SetSubject($"Nuevo mensaje de {encodedName} ({encodedEmail})");
-                message.AddContent("text/html", html);
-
-                await messageCollector.AddAsync(message);
-
-                //TODO: Maybe send an email back to the sender leting them know their rights.
-
-                log.LogInformation($"C# HTTP trigger email sent from {encodedEmail}");
+                await SendEncodedMessage(messageCollector, log, html, form);
             }
             catch (XssException)
             {
+                await SendExceptionMessage(messageCollector, log, context, form);
                 return new JsonResult(Result.InvalidInput());
             }
             catch (Exception ex)
             {
+                await SendExceptionMessage(messageCollector, log, context, form, ex);
+
                 log.LogError(ex, $"Error on {nameof(PostContactForm)} function: {ex}");
                 return new JsonResult(Result.UnexpectedError(ex.Message));
             }
             return new JsonResult(Result.Success());
+        }
+
+        private async Task SendExceptionMessage(IAsyncCollector<SendGridMessage> messageCollector, ILogger log, ExecutionContext context, ContactForm form, Exception ex = null)
+        {
+            try
+            {
+                if (form != null)
+                {
+                    //Get and format mail template
+                    var html = File.ReadAllText(context.FunctionAppDirectory + "/ErrorTemplate.html");
+                    await SendEncodedMessage(messageCollector, log, html, form, error: true, ex);
+                }
+            }
+            catch (Exception)
+            {
+                //Ignore errors here
+            }
+        }
+
+        private async Task SendEncodedMessage(IAsyncCollector<SendGridMessage> messageCollector, ILogger log, string html, ContactForm form, bool error = false, Exception ex = null)
+        {
+            //Encode all output
+            string encodedName = System.Net.WebUtility.HtmlEncode(form.Name);
+            string encodedEmail = System.Net.WebUtility.HtmlEncode(form.Email);
+            string encodedPhone = System.Net.WebUtility.HtmlEncode(form.Phone);
+            string encodedMessage = System.Net.WebUtility.HtmlEncode(form.Message);
+
+            
+            html = FormatTemplate(html, nameof(form.Name), encodedName);
+            html = FormatTemplate(html, nameof(form.Email), encodedEmail);
+            html = FormatTemplate(html, nameof(form.Phone), encodedPhone);
+            html = FormatTemplate(html, nameof(form.Message), encodedMessage);
+            html = FormatTemplate(html, "Exception", (ex == null) ? "-Ninguna-" : ex.ToString());
+
+            //Build message and send
+            var message = new SendGridMessage();
+            message.AddTo(configuration.ContactMailDestination);
+            message.SetFrom(new EmailAddress(configuration.ContactMailSender));
+            message.SetSubject(error ? $"{encodedName} ({encodedEmail}) ha recibido un error en formulario contacto" : $"Nuevo mensaje de {encodedName} ({encodedEmail})");
+            message.AddContent("text/html", html);
+
+            await messageCollector.AddAsync(message);
+
+            //TODO: Maybe send an email back to the sender leting them know their rights.
+
+            log.LogInformation($"C# HTTP trigger email sent from {encodedEmail}");
         }
 
         private static string FormatTemplate(string html, string field, string value)
