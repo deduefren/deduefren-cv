@@ -1,27 +1,109 @@
-# CvApp
+# Cv App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
+React 19 + TypeScript + Vite application with server-side rendering (SSR) for SEO.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Node.js 18.13.0 or newer
+- npm (comes with Node.js)
 
-## Code scaffolding
+## Install Dependencies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm install
+```
 
-## Build
+## Run The Project
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### 1) SSR Development Mode (recommended)
 
-## Running unit tests
+Starts the Express SSR server with Vite middleware.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm run dev
+```
 
-## Running end-to-end tests
+Open:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- http://localhost:5173
 
-## Further help
+### 2) SPA Development Mode (no SSR)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Runs plain Vite dev server.
+
+```bash
+npm run dev:spa
+```
+
+## API Proxy Behavior
+
+In development, requests to `/api/*` are proxied to:
+
+- http://localhost:7071
+
+This keeps the contact form endpoint compatible with the existing backend contract.
+
+## Type Check
+
+```bash
+npm run typecheck
+```
+
+## Run Tests
+
+Run once:
+
+```bash
+npm test
+```
+
+Watch mode:
+
+```bash
+npm run test:watch
+```
+
+## Production Build
+
+```bash
+npm run build
+```
+
+Output:
+
+- `dist/client` (client bundle)
+- `dist/server` (SSR server bundle)
+
+## Run Production SSR
+
+```bash
+npm run start
+```
+
+The production server uses `server.mjs` and serves the built assets from `dist/client`.
+
+## Main Scripts
+
+- `npm run dev` - SSR development server
+- `npm run dev:spa` - Vite SPA development server
+- `npm run typecheck` - TypeScript type checking
+- `npm test` - Unit tests with Vitest
+- `npm run build` - Client + SSR build
+- `npm run start` - Serve production SSR build
+
+## Project Entrypoints
+
+- `src/entry-client.tsx` - client hydration entrypoint
+- `src/entry-server.tsx` - server render entrypoint
+- `server.mjs` - Express SSR server
+
+## Troubleshooting
+
+- Port already in use: set `PORT` before running (PowerShell example):
+
+```powershell
+$env:PORT=5174
+npm run dev
+```
+
+- Backend API not reachable: ensure the API host is running at `http://localhost:7071`.
