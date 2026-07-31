@@ -131,58 +131,43 @@ export default function App({ initialLanguage }: AppProps) {
             <h3 className="section-subheading text-muted">{t('about.subtitle')}</h3>
           </div>
 
-          <div className="about-showcase">
-            <div className="about-showcase__content">
-              <p className="about-showcase__eyebrow">{t('about.hero-eyebrow')}</p>
-              <h4>{t('about.hero-title')}</h4>
-              <p>{t('about.hero-description')}</p>
-              <div className="about-showcase__tags">
-                <span>{t('about.hero-pill-1')}</span>
-                <span>{t('about.hero-pill-2')}</span>
-                <span>{t('about.hero-pill-3')}</span>
-              </div>
-            </div>
-            <div className="about-showcase__stats">
-              <div className="about-stat">
-                <strong>10+</strong>
-                <span>{t('about.hero-stat-years')}</span>
-              </div>
-              <div className="about-stat">
-                <strong>Azure</strong>
-                <span>{t('about.hero-stat-cloud')}</span>
-              </div>
-              <div className="about-stat">
-                <strong>∞</strong>
-                <span>{t('about.hero-stat-learning')}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="about-grid">
-            <article className="about-card">
-              <div className="about-card__icon">
-                <i className="fab fa-leanpub"></i>
+          <div className="about-grid-centered">
+            <article className="about-card-centered">
+              <div className="about-card-centered__icon-wrap">
+                <span className="fa-stack fa-4x">
+                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fab fa-leanpub fa-stack-1x fa-inverse"></i>
+                </span>
               </div>
               <h4>{t('about.learning-title')}</h4>
               <p>{t('about.learning-description')}</p>
             </article>
-            <article className="about-card">
-              <div className="about-card__icon">
-                <i className="fas fa-laptop"></i>
+            <article className="about-card-centered">
+              <div className="about-card-centered__icon-wrap">
+                <span className="fa-stack fa-4x">
+                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                </span>
               </div>
               <h4>{t('about.net-title')}</h4>
               <p>{t('about.net-description')}</p>
             </article>
-            <article className="about-card">
-              <div className="about-card__icon">
-                <i className="fas fa-cloud"></i>
+            <article className="about-card-centered">
+              <div className="about-card-centered__icon-wrap">
+                <span className="fa-stack fa-4x">
+                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fas fa-cloud fa-stack-1x fa-inverse"></i>
+                </span>
               </div>
               <h4>{t('about.backend-title')}</h4>
               <p>{t('about.backend-description')}</p>
             </article>
-            <article className="about-card">
-              <div className="about-card__icon">
-                <i className="fas fa-heart"></i>
+            <article className="about-card-centered">
+              <div className="about-card-centered__icon-wrap">
+                <span className="fa-stack fa-4x">
+                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fas fa-heart fa-stack-1x fa-inverse"></i>
+                </span>
               </div>
               <h4>{t('about.passion-title')}</h4>
               <p>{t('about.passion-description')}</p>
