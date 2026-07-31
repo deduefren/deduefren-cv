@@ -11353,6 +11353,16 @@ header.masthead .masthead-badges span {
 }
 .about-card-centered {
   text-align: center;
+  padding: 2rem 1.5rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(160deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(33, 37, 41, 0.08);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  transition: all 0.3s ease;
+}
+.about-card-centered:hover {
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+  transform: translateY(-2px);
 }
 .about-card-centered__icon-wrap {
   display: flex;
@@ -11363,10 +11373,12 @@ header.masthead .masthead-badges span {
   font-size: 1.3rem;
   margin-bottom: 0.75rem;
   font-weight: 700;
+  color: #212529;
 }
 .about-card-centered p {
-  color: #6c757d;
+  color: #495057;
   line-height: 1.6;
+  margin-bottom: 0;
 }
 
 @media (min-width: 768px) {
