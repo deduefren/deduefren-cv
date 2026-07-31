@@ -2,20 +2,8 @@ import { useEffect, useState } from 'react';
 import BlogSection from './components/BlogSection';
 import CertificationsSection from './components/CertificationsSection';
 import ContactForm from './components/ContactForm';
+import ExperienceSection from './components/ExperienceSection';
 import { getInitialLanguage, Language, translate } from './i18n';
-
-type CareerItem = {
-  key: string;
-  titleKey: string;
-  descriptionKey: string;
-  dateKey?: string;
-  dateText?: string;
-  image?: string;
-  imageAlt: string;
-  inverted?: boolean;
-  whiteBackground?: boolean;
-  ending?: boolean;
-};
 
 const showBlog = true;
 const sectionIds = ['aboutme', 'career', 'certifications', 'contact'] as const;
@@ -24,73 +12,6 @@ type SectionId = (typeof sectionIds)[number];
 type AppProps = {
   initialLanguage?: Language;
 };
-
-const careerItems: CareerItem[] = [
-  { key: 'item13', titleKey: 'career.item13.title', descriptionKey: 'career.item13.description', dateKey: 'career.item13.date', image: '/assets/img/about/13.png', imageAlt: 'Microsoft fundamentals certifications', whiteBackground: true },
-  { key: 'item12', titleKey: 'career.item12.title', descriptionKey: 'career.item12.description', dateKey: 'career.item12.date', image: '/assets/img/about/12.svg', imageAlt: 'Plain Concepts', inverted: true, whiteBackground: true },
-  { key: 'item11', titleKey: 'career.item11.title', descriptionKey: 'career.item11.description', dateKey: 'career.item11.date', image: '/assets/img/about/11.png', imageAlt: 'Microsoft Azure DevOps Engineer', whiteBackground: true },
-  { key: 'item10', titleKey: 'career.item10.title', descriptionKey: 'career.item10.description', dateKey: 'career.item10.date', image: '/assets/img/about/10.png', imageAlt: 'Microsoft Azure Developer Associate', inverted: true, whiteBackground: true },
-  { key: 'item9', titleKey: 'career.item9.title', descriptionKey: 'career.item9.description', dateKey: 'career.item9.date', image: '/assets/img/about/9.jpg', imageAlt: 'UNED studies' },
-  { key: 'item8', titleKey: 'career.item8.title', descriptionKey: 'career.item8.description', dateKey: 'career.item8.date', image: '/assets/img/about/8.jpg', imageAlt: 'C# certification', inverted: true },
-  { key: 'item7', titleKey: 'career.item7.title', descriptionKey: 'career.item7.description', dateKey: 'career.item7.date', image: '/assets/img/about/7.jpg', imageAlt: 'Team leader promotion' },
-  { key: 'item6', titleKey: 'career.item6.title', descriptionKey: 'career.item6.description', dateKey: 'career.item6.date', image: '/assets/img/about/6.jpg', imageAlt: 'Clarcat', inverted: true },
-  { key: 'item5', titleKey: 'career.item5.title', descriptionKey: 'career.item5.description', dateKey: 'career.item5.date', image: '/assets/img/about/5.jpg', imageAlt: 'Izertis' },
-  { key: 'item4', titleKey: 'career.item4.title', descriptionKey: 'career.item4.description', dateKey: 'career.item4.date', image: '/assets/img/about/4.jpg', imageAlt: 'English B2', inverted: true },
-  { key: 'item3', titleKey: 'career.item3.title', descriptionKey: 'career.item3.description', dateKey: 'career.item3.date', image: '/assets/img/about/3.jpg', imageAlt: 'International support' },
-  { key: 'item2', titleKey: 'career.item2.title', descriptionKey: 'career.item2.description', dateKey: 'career.item2.date', image: '/assets/img/about/2.jpg', imageAlt: 'Clarcat', inverted: true },
-  { key: 'item1', titleKey: 'career.item1.title', descriptionKey: 'career.item1.description', dateText: '2011-2013', image: '/assets/img/about/1.jpg', imageAlt: 'Student years' },
-  { key: 'item0', titleKey: 'career.item0.title', descriptionKey: 'career.item0.description', imageAlt: 'Beginnings', inverted: true, ending: true },
-];
-
-function renderCareerItem(item: CareerItem, t: (key: string) => string) {
-  const itemClassName = item.inverted ? 'timeline-inverted' : undefined;
-
-  if (item.ending) {
-    return (
-      <li key={item.key} className={itemClassName}>
-        <div className="timeline-image">
-          <h4>
-            {t('career.ending-line1')}
-            <br />
-            {t('career.ending-line2')}
-            <br />
-            {t('career.ending-line3')}
-          </h4>
-        </div>
-        <div className="timeline-panel">
-          <div className="timeline-heading">
-            <h4 className="subheading">{t(item.titleKey)}</h4>
-          </div>
-          <div className="timeline-body">
-            <p className="text-muted">{t(item.descriptionKey)}</p>
-          </div>
-        </div>
-      </li>
-    );
-  }
-
-  return (
-    <li key={item.key} className={itemClassName}>
-      <div className="timeline-image">
-        <img
-          className="rounded-circle img-fluid"
-          style={item.whiteBackground ? { backgroundColor: 'white' } : undefined}
-          src={item.image}
-          alt={item.imageAlt}
-        />
-      </div>
-      <div className="timeline-panel">
-        <div className="timeline-heading">
-          <h4>{item.dateText ?? (item.dateKey ? t(item.dateKey) : '')}</h4>
-          <h4 className="subheading">{t(item.titleKey)}</h4>
-        </div>
-        <div className="timeline-body">
-          <p className="text-muted">{t(item.descriptionKey)}</p>
-        </div>
-      </div>
-    </li>
-  );
-}
 
 export default function App({ initialLanguage }: AppProps) {
   const [language] = useState<Language>(initialLanguage ?? getInitialLanguage());
@@ -233,15 +154,7 @@ export default function App({ initialLanguage }: AppProps) {
         </div>
       </section>
 
-      <section className="page-section" id="career">
-        <div className="container">
-          <div className="text-center">
-            <h2 className="section-heading text-uppercase">{t('career.title')}</h2>
-            <h3 className="section-subheading text-muted">{t('career.subtitle')}</h3>
-          </div>
-          <ul className="timeline">{careerItems.map((item) => renderCareerItem(item, t))}</ul>
-        </div>
-      </section>
+      <ExperienceSection t={t} />
 
       <section className="page-section" id="certifications">
         <CertificationsSection t={t} />

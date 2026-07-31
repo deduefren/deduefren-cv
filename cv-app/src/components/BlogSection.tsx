@@ -1,13 +1,14 @@
 import { useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Language } from '../i18n';
-import { blogPosts, filterBlogPosts, readBlogMarkdown } from '../content/blog/blog-posts';
+import { blogPosts, filterBlogPosts, readBlogMarkdown, readBlogSummary } from '../content/blog/blog-posts';
 
 type Translate = (key: string) => string;
 
 function BlogPostCard({ post, language }: { post: (typeof blogPosts)[number]; language: Language }) {
   const [collapsed, setCollapsed] = useState(true);
-  const content = useMemo(() => readBlogMarkdown(post.slug), [post.slug]);
+  const fullContent = useMemo(() => readBlogMarkdown(post.slug), [post.slug]);
+  const summaryContent = useMemo(() => readBlogSummary(post.slug), [post.slug]);
 
   const formattedDate = new Intl.DateTimeFormat(language, {
     dateStyle: 'short',
@@ -33,13 +34,16 @@ function BlogPostCard({ post, language }: { post: (typeof blogPosts)[number]; la
         </div>
         <span className="post-date">{formattedDate}</span>
       </div>
-      <p className="post-content">{collapsed ? post.hint : content || post.hint}</p>
-      <div className="post-footer">
-        <span className="post-toggle">{collapsed ? 'Read more →' : 'Show less'}</span>
+      <div className="post-content">
+        <ReactMarkdown>{collapsed ? summaryContent || post.hint : fullContent || summaryContent || post.hint}</ReactMarkdown>
       </div>
-      {!collapsed && (
-        <div className="post-markdown">
-          <ReactMarkdown>{content || post.hint}</ReactMarkdown>
+      {collapsed ? (
+        <div className="post-footer">
+          <span className="post-toggle">Read more →</span>
+        </div>
+      ) : (
+        <div className="post-footer post-footer-expanded">
+          <span className="post-toggle">Show less</span>
         </div>
       )}
     </article>

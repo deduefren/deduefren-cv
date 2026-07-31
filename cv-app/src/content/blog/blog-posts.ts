@@ -11,6 +11,34 @@ const markdownModules = import.meta.glob('./*.md', {
   eager: true,
 }) as Record<string, string>;
 
+function trimMarkdownToSummary(markdown: string): string {
+  const normalized = markdown
+    .replace(/^#\s+/gm, '')
+    .replace(/\n{2,}/g, '\n\n')
+    .trim();
+
+  const paragraphs = normalized
+    .split(/\n\n+/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+
+  if (paragraphs.length === 0) {
+    return '';
+  }
+
+  const summaryParagraph = paragraphs[0] ?? '';
+  const summaryText = summaryParagraph
+    .replace(/^[-*]\s+/gm, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (summaryText.length <= 220) {
+    return summaryParagraph;
+  }
+
+  return `${summaryText.slice(0, 217).trimEnd()}...`;
+}
+
 export const blogPosts: BlogPost[] = [
   {
     slug: 'chat-gpt-toolkit',
@@ -33,7 +61,17 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export function readBlogMarkdown(slug: string): string {
-  return markdownModules[`./${slug}.md`] ?? '';
+  const markdown = markdownModules[`./${slug}.md`] ?? '';
+  return markdown.replace(/^#\s+.+$/m, '').trim();
+}
+
+export function readBlogSummary(slug: string): string {
+  const explicitSummary = markdownModules[`./${slug}.summary.md`] ?? '';
+  if (explicitSummary.trim()) {
+    return explicitSummary.trim();
+  }
+
+  return trimMarkdownToSummary(readBlogMarkdown(slug));
 }
 
 export function filterBlogPosts(posts: BlogPost[], query: string): BlogPost[] {
