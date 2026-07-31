@@ -11263,6 +11263,108 @@ header.masthead .masthead-heading {
   }
 }
 
+.about-showcase {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  background: linear-gradient(135deg, #fffdf2 0%, #ffffff 100%);
+  border: 1px solid rgba(33, 37, 41, 0.08);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+.about-showcase__content h4 {
+  font-size: clamp(1.5rem, 2.1vw, 2rem);
+  margin-bottom: 0.85rem;
+}
+.about-showcase__eyebrow {
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffc800;
+}
+.about-showcase__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.about-showcase__tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #212529;
+  background: rgba(255, 200, 0, 0.16);
+}
+.about-showcase__stats {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.about-stat {
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  background: #fff;
+  border: 1px solid #e9ecef;
+}
+.about-stat strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 1.35rem;
+  color: #212529;
+}
+.about-stat span {
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+.about-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.about-card {
+  min-height: 100%;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(160deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(33, 37, 41, 0.08);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+}
+.about-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  border-radius: 999px;
+  color: #212529;
+  background: rgba(255, 200, 0, 0.18);
+}
+.about-card h4 {
+  margin-bottom: 0.65rem;
+}
+.about-card p {
+  margin-bottom: 0;
+  color: #495057;
+}
+
+@media (max-width: 768px) {
+  .about-showcase__stats,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-showcase {
+    padding: 1.5rem;
+  }
+}
+
 .team-member {
   margin-bottom: 1rem;
   text-align: center;
