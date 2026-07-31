@@ -11343,10 +11343,10 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .certifications-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.25rem;
   margin-top: 2rem;
-  grid-auto-flow: dense;
+  align-items: stretch;
 }
 
 .certification-card {
@@ -11354,6 +11354,7 @@ section#contact form#contactForm :-ms-input-placeholder {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
   min-height: 220px;
   padding: 1.25rem;
   border-radius: 1.5rem;
@@ -11398,15 +11399,16 @@ section#contact form#contactForm :-ms-input-placeholder {
   position: relative;
   z-index: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 1rem;
 }
 
 .certification-card__image-wrap {
   flex: none;
-  width: 88px;
-  height: 88px;
-  border-radius: 1.5rem;
+  width: 108px;
+  height: 108px;
+  border-radius: 1.75rem;
   display: grid;
   place-items: center;
   background: rgba(255, 255, 255, 0.82);
@@ -11415,8 +11417,8 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .certification-card__image {
   display: block;
-  width: 68px;
-  height: 68px;
+  width: 84px;
+  height: 84px;
   object-fit: contain;
 }
 
@@ -11426,7 +11428,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .certification-card__title {
   color: inherit;
-  font-size: 1rem;
+  font-size: 1.15rem;
   line-height: 1.35;
   font-weight: 700;
 }
@@ -11438,23 +11440,24 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-weight: 500;
 }
 
-.certification-card--sm {
-  min-height: 180px;
+.certification-card--sm,
+.certification-card--md,
+.certification-card--lg {
+  min-height: 220px;
 }
 
 .certification-card--sm .certification-card__image-wrap {
-  width: 72px;
-  height: 72px;
-  border-radius: 1.2rem;
+  width: 88px;
+  height: 88px;
+  border-radius: 1.5rem;
 }
 
 .certification-card--sm .certification-card__image {
-  width: 54px;
-  height: 54px;
+  width: 68px;
+  height: 68px;
 }
 
 .certification-card--lg {
-  min-height: 290px;
   color: #f8fafc;
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 32%),
@@ -11495,17 +11498,9 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 @media (min-width: 992px) {
+  .certification-card--sm,
+  .certification-card--md,
   .certification-card--lg {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  .certification-card--md {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-
-  .certification-card--sm {
     grid-column: span 1;
     grid-row: span 1;
   }
