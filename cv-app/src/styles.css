@@ -11084,6 +11084,10 @@ header.masthead .masthead-heading {
 }
 
 .career-timeline {
+  --timeline-center-x: 1.25rem;
+  --timeline-marker-size: 7.25rem;
+  --timeline-image-size: 6.25rem;
+  --timeline-item-gap: calc((var(--timeline-marker-size) / 2) + 1rem);
   position: relative;
   list-style: none;
   padding: 0;
@@ -11094,7 +11098,7 @@ header.masthead .masthead-heading {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 1.25rem;
+  left: var(--timeline-center-x);
   width: 2px;
   background: linear-gradient(180deg, rgba(255, 200, 0, 0.4) 0%, rgba(255, 200, 0, 0.95) 100%);
 }
@@ -11108,10 +11112,10 @@ header.masthead .masthead-heading {
 }
 .career-marker {
   position: absolute;
-  left: 1.25rem;
+  left: var(--timeline-center-x);
   top: 1.25rem;
-  width: 5rem;
-  height: 5rem;
+  width: var(--timeline-marker-size);
+  height: var(--timeline-marker-size);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11132,8 +11136,8 @@ header.masthead .masthead-heading {
 }
 .career-marker__image {
   display: block;
-  width: 4rem;
-  height: 4rem;
+  width: var(--timeline-image-size);
+  height: var(--timeline-image-size);
   object-fit: cover;
   border-radius: 999px;
   border: 2px solid #fff;
@@ -11230,26 +11234,24 @@ header.masthead .masthead-heading {
 }
 
 @media (min-width: 768px) {
-  .career-timeline::before {
-    left: 50%;
+  .career-timeline {
+    --timeline-center-x: 50%;
   }
   .career-item {
-    width: calc(50% - 3.5rem);
+    width: calc(50% - var(--timeline-item-gap));
     padding-left: 0;
     margin-bottom: 3rem;
   }
   .career-item--alt {
-    margin-left: calc(50% + 3.5rem);
+    margin-left: calc(50% + var(--timeline-item-gap));
   }
   .career-marker {
-    right: -6rem;
-    left: auto;
+    left: calc(100% + var(--timeline-item-gap));
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
   }
   .career-item--alt .career-marker {
-    left: -6rem;
-    right: auto;
+    left: calc(-1 * var(--timeline-item-gap));
   }
   .career-card {
     width: 100%;
