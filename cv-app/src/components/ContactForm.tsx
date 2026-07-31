@@ -77,91 +77,106 @@ export default function ContactForm({ t }: { t: Translate }) {
 
   return (
     <div className="container">
-      <div className="text-center">
-        <h2 className="section-heading text-uppercase">{t('contact.title')}</h2>
-        <h3 className="section-subheading text-muted">{t('contact.subtitle')}</h3>
+      <div className="contact-shell">
+        <div className="contact-panel contact-panel--info">
+          <p className="contact-eyebrow">{t('contact.eyebrow')}</p>
+          <h4>{t('contact.panel-title')}</h4>
+          <p>{t('contact.panel-description')}</p>
+          <ul className="contact-list">
+            <li>{t('contact.panel-item-1')}</li>
+            <li>{t('contact.panel-item-2')}</li>
+            <li>{t('contact.panel-item-3')}</li>
+          </ul>
+        </div>
+
+        <div className="contact-panel contact-panel--form">
+          <div className="text-center">
+            <h2 className="section-heading text-uppercase">{t('contact.title')}</h2>
+            <h3 className="section-subheading text-muted">{t('contact.subtitle')}</h3>
+          </div>
+          <form id="contactForm" noValidate onSubmit={onSubmit}>
+            <div className="row align-items-stretch mb-5">
+              <div className="col-md-6">
+                <div className="form-group contact-field">
+                  <input
+                    className={controlClass('name')}
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder={t('contact.name')}
+                    value={values.name}
+                    onChange={updateField}
+                    onBlur={touchField}
+                  />
+                  {touched.name && errors.name === 'required' ? <div className="invalid-feedback">{t('contact.name-validation')}</div> : null}
+                  {touched.name && errors.name === 'length' ? <div className="invalid-feedback">{t('contact.name-validation-length')}</div> : null}
+                </div>
+                <div className="form-group contact-field">
+                  <input
+                    className={controlClass('email')}
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder={t('contact.email')}
+                    value={values.email}
+                    onChange={updateField}
+                    onBlur={touchField}
+                  />
+                  {touched.email && errors.email === 'required' ? <div className="invalid-feedback">{t('contact.email-validation-required')}</div> : null}
+                  {touched.email && errors.email === 'email' ? <div className="invalid-feedback">{t('contact.email-validation-invalid')}</div> : null}
+                </div>
+                <div className="form-group mb-md-0 contact-field">
+                  <input
+                    className={controlClass('phone')}
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder={t('contact.phone')}
+                    value={values.phone}
+                    onChange={updateField}
+                    onBlur={touchField}
+                  />
+                  {touched.phone && errors.phone === 'length' ? <div className="invalid-feedback">{t('contact.phone-validation-length')}</div> : null}
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="form-group form-group-textarea mb-md-0 contact-field">
+                  <textarea
+                    className={controlClass('message')}
+                    id="message"
+                    name="message"
+                    placeholder={t('contact.message')}
+                    value={values.message}
+                    onChange={updateField}
+                    onBlur={touchField}
+                  />
+                  {touched.message && errors.message === 'required' ? <div className="invalid-feedback">{t('contact.message-validation')}</div> : null}
+                  {touched.message && errors.message === 'length' ? <div className="invalid-feedback">{t('contact.message-validation-length')}</div> : null}
+                </div>
+              </div>
+            </div>
+            {submitResult?.statusCode === 0 ? (
+              <div id="submitSuccessMessage">
+                <div className="text-center text-white mb-3">
+                  <div className="fw-bolder">{t('contact.send-success')}</div>
+                </div>
+              </div>
+            ) : null}
+            {submitResult && submitResult.statusCode < 0 ? (
+              <div id="submitErrorMessage">
+                <div className="text-center text-danger mb-3">
+                  {t('contact.send-error')} {submitResult.statusCode === -4 ? submitResult.message : t(`contact.${submitResult.message}`)}
+                </div>
+              </div>
+            ) : null}
+            <div className="text-center">
+              <button className="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit" disabled={!isValid || isSubmitting}>
+                {isSubmitting ? '...' : t('contact.send-button')}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      <form id="contactForm" noValidate onSubmit={onSubmit}>
-        <div className="row align-items-stretch mb-5">
-          <div className="col-md-6">
-            <div className="form-group">
-              <input
-                className={controlClass('name')}
-                id="name"
-                name="name"
-                type="text"
-                placeholder={t('contact.name')}
-                value={values.name}
-                onChange={updateField}
-                onBlur={touchField}
-              />
-              {touched.name && errors.name === 'required' ? <div className="invalid-feedback">{t('contact.name-validation')}</div> : null}
-              {touched.name && errors.name === 'length' ? <div className="invalid-feedback">{t('contact.name-validation-length')}</div> : null}
-            </div>
-            <div className="form-group">
-              <input
-                className={controlClass('email')}
-                id="email"
-                name="email"
-                type="email"
-                placeholder={t('contact.email')}
-                value={values.email}
-                onChange={updateField}
-                onBlur={touchField}
-              />
-              {touched.email && errors.email === 'required' ? <div className="invalid-feedback">{t('contact.email-validation-required')}</div> : null}
-              {touched.email && errors.email === 'email' ? <div className="invalid-feedback">{t('contact.email-validation-invalid')}</div> : null}
-            </div>
-            <div className="form-group mb-md-0">
-              <input
-                className={controlClass('phone')}
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder={t('contact.phone')}
-                value={values.phone}
-                onChange={updateField}
-                onBlur={touchField}
-              />
-              {touched.phone && errors.phone === 'length' ? <div className="invalid-feedback">{t('contact.phone-validation-length')}</div> : null}
-            </div>
-          </div>
-          <div className="col-md-6">
-            <div className="form-group form-group-textarea mb-md-0">
-              <textarea
-                className={controlClass('message')}
-                id="message"
-                name="message"
-                placeholder={t('contact.message')}
-                value={values.message}
-                onChange={updateField}
-                onBlur={touchField}
-              />
-              {touched.message && errors.message === 'required' ? <div className="invalid-feedback">{t('contact.message-validation')}</div> : null}
-              {touched.message && errors.message === 'length' ? <div className="invalid-feedback">{t('contact.message-validation-length')}</div> : null}
-            </div>
-          </div>
-        </div>
-        {submitResult?.statusCode === 0 ? (
-          <div id="submitSuccessMessage">
-            <div className="text-center text-white mb-3">
-              <div className="fw-bolder">{t('contact.send-success')}</div>
-            </div>
-          </div>
-        ) : null}
-        {submitResult && submitResult.statusCode < 0 ? (
-          <div id="submitErrorMessage">
-            <div className="text-center text-danger mb-3">
-              {t('contact.send-error')} {submitResult.statusCode === -4 ? submitResult.message : t(`contact.${submitResult.message}`)}
-            </div>
-          </div>
-        ) : null}
-        <div className="text-center">
-          <button className="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit" disabled={!isValid || isSubmitting}>
-            {isSubmitting ? '...' : t('contact.send-button')}
-          </button>
-        </div>
-      </form>
     </div>
   );
 }

@@ -87,21 +87,36 @@ export default function App({ initialLanguage }: AppProps) {
 
       <header className="masthead">
         <div className="container">
-          <div className="masthead-subheading">{t('landing.welcome')}</div>
-          <div className="row">
-            <div className="col">
-              <div className="team-member">
-                <img className="mx-auto rounded-circle" src="/assets/img/team/1.jpg" alt="Daniel Efren Diaz Ureta" />
-                <h4>Daniel Efr&eacute;n D&iacute;az Ureta</h4>
-                <p className="text-muted">{t('landing.job-title')}</p>
+          <div className="masthead-shell">
+            <div className="masthead-intro">
+              <p className="masthead-kicker">{t('landing.welcome')}</p>
+              <h1 className="masthead-heading">Daniel Efr&eacute;n D&iacute;az Ureta</h1>
+              <p className="masthead-subheading">{t('landing.job-title')}</p>
+              <p className="masthead-description">{t('landing.description')}</p>
+              <div className="masthead-actions">
+                <a className="btn btn-primary btn-xl text-uppercase" href="#contact">{t('landing.contact-cta')}</a>
+                <a className="btn btn-outline-light btn-xl text-uppercase" href="#career">{t('landing.experience-cta')}</a>
+              </div>
+              <div className="masthead-socials">
                 <a className="btn btn-primary btn-social mx-2" href="https://www.linkedin.com/in/deduefren/" target="_blank" title="Linkedin" rel="noreferrer noopener"><i className="fab fa-linkedin-in"></i></a>
                 <a className="btn btn-primary btn-social mx-2" href="https://www.credly.com/users/daniel-efren-diaz-ureta.34cdc423/badges" target="_blank" title="Credly" rel="noreferrer noopener">C</a>
                 <a className="btn btn-primary btn-social mx-2" href="https://github.com/deduefren" target="_blank" title="Github" rel="noreferrer noopener"><i className="fab fa-github"></i></a>
                 <a className="btn btn-primary btn-social mx-2" href="https://learn.microsoft.com/en-gb/users/deduefren/" target="_blank" title="Microsoft" rel="noreferrer noopener"><i className="fab fa-microsoft"></i></a>
-                <div style={{ marginTop: '0.5em' }}>
-                  <a className="btn btn-primary btn-social mx-2" href="https://twitter.com/deduefren" target="_blank" title="Twitter" rel="noreferrer noopener"><i className="fab fa-twitter"></i></a>
-                  <a className="btn btn-primary btn-social mx-2" href="https://www.instagram.com/deduefren/" target="_blank" title="Instagram" rel="noreferrer noopener"><i className="fab fa-instagram"></i></a>
-                  <a className="btn btn-primary btn-social mx-2" href="https://www.flickr.com/people/danielefren/" target="_blank" title="Flickr" rel="noreferrer noopener"><i className="fab fa-flickr"></i></a>
+                <a className="btn btn-primary btn-social mx-2" href="https://twitter.com/deduefren" target="_blank" title="Twitter" rel="noreferrer noopener"><i className="fab fa-twitter"></i></a>
+                <a className="btn btn-primary btn-social mx-2" href="https://www.instagram.com/deduefren/" target="_blank" title="Instagram" rel="noreferrer noopener"><i className="fab fa-instagram"></i></a>
+                <a className="btn btn-primary btn-social mx-2" href="https://www.flickr.com/people/danielefren/" target="_blank" title="Flickr" rel="noreferrer noopener"><i className="fab fa-flickr"></i></a>
+              </div>
+            </div>
+
+            <div className="masthead-profile-card">
+              <img src="/assets/img/team/1.jpg" alt="Daniel Efren Diaz Ureta" />
+              <div className="masthead-profile-card__body">
+                <h4>{t('landing.profile-title')}</h4>
+                <p>{t('landing.profile-description')}</p>
+                <div className="masthead-badges">
+                  <span>{t('landing.profile-pill-1')}</span>
+                  <span>{t('landing.profile-pill-2')}</span>
+                  <span>{t('landing.profile-pill-3')}</span>
                 </div>
               </div>
             </div>
@@ -195,7 +210,7 @@ export default function App({ initialLanguage }: AppProps) {
       <footer className="footer py-4">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-12">deduefren 2023</div>
+            <div className="col-lg-12">© {new Date().getFullYear()} deduefren</div>
           </div>
         </div>
       </footer>
