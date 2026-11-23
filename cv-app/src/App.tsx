@@ -1,0 +1,204 @@
+import { useEffect, useState } from 'react';
+import BlogSection from './components/BlogSection';
+import CertificationsSection from './components/CertificationsSection';
+import ContactForm from './components/ContactForm';
+import ExperienceSection from './components/ExperienceSection';
+import { getInitialLanguage, Language, translate } from './i18n';
+
+const showBlog = false;
+const sectionIds = ['aboutme', 'career', 'certifications', 'contact'] as const;
+type SectionId = (typeof sectionIds)[number];
+
+type AppProps = {
+  initialLanguage?: Language;
+};
+
+export default function App({ initialLanguage }: AppProps) {
+  const [language] = useState<Language>(initialLanguage ?? getInitialLanguage());
+  const [activeSection, setActiveSection] = useState<SectionId>('aboutme');
+  const t = (key: string) => translate(language, key);
+
+  useEffect(() => {
+    function resolveFromHash() {
+      const hashValue = window.location.hash.replace('#', '');
+      if (sectionIds.includes(hashValue as SectionId)) {
+        setActiveSection(hashValue as SectionId);
+      }
+    }
+
+    function resolveFromScroll() {
+      const navHeight = document.getElementById('mainNav')?.clientHeight ?? 74;
+      const probeY = window.scrollY + navHeight + 8;
+      let nextActive: SectionId = 'aboutme';
+
+      for (const id of sectionIds) {
+        const section = document.getElementById(id);
+        if (!section) {
+          continue;
+        }
+
+        if (section.offsetTop <= probeY) {
+          nextActive = id;
+        }
+      }
+
+      setActiveSection(nextActive);
+    }
+
+    resolveFromHash();
+    resolveFromScroll();
+
+    window.addEventListener('hashchange', resolveFromHash);
+    window.addEventListener('scroll', resolveFromScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('hashchange', resolveFromHash);
+      window.removeEventListener('scroll', resolveFromScroll);
+    };
+  }, []);
+
+  return (
+    <>
+      <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div className="container">
+          <span className="navbar-brand">deduefren</span>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            Menu
+            <i className="fas fa-bars ms-1"></i>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarResponsive">
+            <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+              <li className="nav-item"><a className={`nav-link${activeSection === 'aboutme' ? ' active' : ''}`} href="#aboutme" onClick={() => setActiveSection('aboutme')}>{t('about.title')}</a></li>
+              <li className="nav-item"><a className={`nav-link${activeSection === 'career' ? ' active' : ''}`} href="#career" onClick={() => setActiveSection('career')}>{t('career.title')}</a></li>
+              <li className="nav-item"><a className={`nav-link${activeSection === 'certifications' ? ' active' : ''}`} href="#certifications" onClick={() => setActiveSection('certifications')}>{t('certifications.title')}</a></li>
+              <li className="nav-item"><a className={`nav-link${activeSection === 'contact' ? ' active' : ''}`} href="#contact" onClick={() => setActiveSection('contact')}>{t('contact.title')}</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <header className="masthead">
+        <div className="container">
+          <div className="masthead-shell">
+            <div className="masthead-intro">
+              <p className="masthead-kicker">{t('landing.welcome')}</p>
+              <h1 className="masthead-heading">Daniel Efr&eacute;n D&iacute;az Ureta</h1>
+              <p className="masthead-subheading">{t('landing.job-title')}</p>
+              <p className="masthead-description">{t('landing.description')}</p>
+              <div className="masthead-actions">
+                <a className="btn btn-primary btn-xl text-uppercase" href="#contact">{t('landing.contact-cta')}</a>
+                <a className="btn btn-outline-light btn-xl text-uppercase" href="#career">{t('landing.experience-cta')}</a>
+              </div>
+              <div className="masthead-socials">
+                <a className="btn btn-primary btn-social mx-2" href="https://www.linkedin.com/in/deduefren/" target="_blank" title="Linkedin" rel="noreferrer noopener"><i className="fab fa-linkedin-in"></i></a>
+                <a className="btn btn-primary btn-social mx-2" href="https://www.credly.com/users/daniel-efren-diaz-ureta.34cdc423/badges" target="_blank" title="Credly" rel="noreferrer noopener">C</a>
+                <a className="btn btn-primary btn-social mx-2" href="https://github.com/deduefren" target="_blank" title="Github" rel="noreferrer noopener"><i className="fab fa-github"></i></a>
+                <a className="btn btn-primary btn-social mx-2" href="https://learn.microsoft.com/en-gb/users/deduefren/" target="_blank" title="Microsoft" rel="noreferrer noopener"><i className="fab fa-microsoft"></i></a>
+                <a className="btn btn-primary btn-social mx-2" href="https://twitter.com/deduefren" target="_blank" title="Twitter" rel="noreferrer noopener"><i className="fab fa-twitter"></i></a>
+                <a className="btn btn-primary btn-social mx-2" href="https://www.instagram.com/deduefren/" target="_blank" title="Instagram" rel="noreferrer noopener"><i className="fab fa-instagram"></i></a>
+                <a className="btn btn-primary btn-social mx-2" href="https://www.flickr.com/people/danielefren/" target="_blank" title="Flickr" rel="noreferrer noopener"><i className="fab fa-flickr"></i></a>
+              </div>
+            </div>
+
+            <div className="masthead-profile-card">
+              <img src="/assets/img/team/1.jpg" alt="Daniel Efren Diaz Ureta" />
+              <div className="masthead-profile-card__body">
+                <h4>{t('landing.profile-title')}</h4>
+                <p>{t('landing.profile-description')}</p>
+                <div className="masthead-badges">
+                  <span>{t('landing.profile-pill-1')}</span>
+                  <span>{t('landing.profile-pill-2')}</span>
+                  <span>{t('landing.profile-pill-3')}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section className="page-section about-section" id="aboutme">
+        <div className="container">
+          <div className="text-center">
+            <h2 className="section-heading text-uppercase">{t('about.title')}</h2>
+            <h3 className="section-subheading text-muted">{t('about.subtitle')}</h3>
+          </div>
+
+          <div className="about-grid-centered">
+            <article className="about-card-centered">
+              <div className="about-card-centered__icon-wrap">
+                <span className="fa-stack fa-4x">
+                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fab fa-leanpub fa-stack-1x fa-inverse"></i>
+                </span>
+              </div>
+              <h4>{t('about.learning-title')}</h4>
+              <p>{t('about.learning-description')}</p>
+            </article>
+            <article className="about-card-centered">
+              <div className="about-card-centered__icon-wrap">
+                <span className="fa-stack fa-4x">
+                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                </span>
+              </div>
+              <h4>{t('about.net-title')}</h4>
+              <p>{t('about.net-description')}</p>
+            </article>
+            <article className="about-card-centered">
+              <div className="about-card-centered__icon-wrap">
+                <span className="fa-stack fa-4x">
+                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fas fa-cloud fa-stack-1x fa-inverse"></i>
+                </span>
+              </div>
+              <h4>{t('about.backend-title')}</h4>
+              <p>{t('about.backend-description')}</p>
+            </article>
+            <article className="about-card-centered">
+              <div className="about-card-centered__icon-wrap">
+                <span className="fa-stack fa-4x">
+                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fas fa-heart fa-stack-1x fa-inverse"></i>
+                </span>
+              </div>
+              <h4>{t('about.passion-title')}</h4>
+              <p>{t('about.passion-description')}</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <ExperienceSection t={t} />
+
+      <section className="page-section" id="certifications">
+        <CertificationsSection t={t} />
+      </section>
+
+      {showBlog ? (
+        <section className="page-section" id="blog">
+          <BlogSection language={language} t={t} />
+        </section>
+      ) : null}
+
+      <section className="page-section" id="contact">
+        <ContactForm t={t} />
+      </section>
+
+      <footer className="footer py-4">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-12">© {new Date().getFullYear()} deduefren</div>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
+}

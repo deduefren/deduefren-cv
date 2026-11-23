@@ -1,11 +1,28 @@
 {
     "landing": {
-        "welcome": "¡Welcome to my site!",
-        "job-title" : "Software Development Engineer"
+        "welcome": "Hi, I’m Daniel",
+        "job-title" : "Software Development Engineer",
+        "description": "I build resilient backend systems, cloud solutions and practical software experiences that help teams move forward with confidence.",
+        "contact-cta": "Let’s talk",
+        "experience-cta": "See my experience",
+        "profile-title": "Currently focused on",
+        "profile-description": "Creating reliable services, modern cloud architecture and meaningful collaboration across delivery teams.",
+        "profile-pill-1": "Backend & C#",
+        "profile-pill-2": "Azure",
+        "profile-pill-3": "Team growth"
     },
     "about": {
         "title":"About me",
         "subtitle": "Technology and photography lover. Software Development Engineer - Plain Concepts. ITI student at UNED.",
+        "hero-eyebrow": "Software Development Engineer",
+        "hero-title": "Crafting reliable software with modern architecture and a constant urge to improve.",
+        "hero-description": "I’m passionate about turning complex requirements into maintainable products, whether that means backend services, cloud-native solutions, or thoughtful collaboration with teams.",
+        "hero-pill-1": "Backend & C#",
+        "hero-pill-2": "Azure",
+        "hero-pill-3": "Continuous learning",
+        "hero-stat-years": "years shaping software",
+        "hero-stat-cloud": "cloud-native experience",
+        "hero-stat-learning": "curiosity and growth",
         "learning-title" : "Learning",
         "learning-description" : "Strong learning and problem solving abilities. Throughout my career I have faced a great number of challenges, which has allowed me to develop a working method that accelerates the learning and understanding process.",
         "net-title" : "Backend and C#",
@@ -73,6 +90,12 @@
     "contact": {
         "title": "Contact me",
         "subtitle": "Want to get in touch? Leave me a message",
+        "eyebrow": "Let’s connect",
+        "panel-title": "Open to new ideas, projects and conversations",
+        "panel-description": "Whether you want to discuss a project, exchange perspectives or explore a collaboration, I’m always happy to connect.",
+        "panel-item-1": "Backend and cloud architecture conversations",
+        "panel-item-2": "Product engineering and delivery partnerships",
+        "panel-item-3": "Mentoring and knowledge sharing",
         "name": "Name *",
         "name-validation": "Your Name is required.",
         "name-validation-length": "Name must have a length between 3 and 80 characters.",

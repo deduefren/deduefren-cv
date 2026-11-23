@@ -1,11 +1,28 @@
 {
     "landing": {
-        "welcome": "¡Bienvenido a mi página web!",
-        "job-title" : "Software Development Engineer"
+        "welcome": "Hola, soy Daniel",
+        "job-title" : "Software Development Engineer",
+        "description": "Diseño sistemas backend robustos, soluciones en la nube y experiencias de software prácticas que ayudan a los equipos a avanzar con confianza.",
+        "contact-cta": "Hablemos",
+        "experience-cta": "Ver mi experiencia",
+        "profile-title": "Actualmente enfocado en",
+        "profile-description": "Crear servicios fiables, arquitectura cloud moderna y colaboración real entre equipos de entrega.",
+        "profile-pill-1": "Backend & C#",
+        "profile-pill-2": "Azure",
+        "profile-pill-3": "Crecimiento de equipo"
     },
     "about": {
         "title":"Sobre mí",
         "subtitle": "Amante de la tecnología y la fotografía. Software Development Engineer - Plain Concepts. Estudiante ITI en UNED.",
+        "hero-eyebrow": "Software Development Engineer",
+        "hero-title": "Creando software fiable con arquitectura moderna y una necesidad constante de mejorar.",
+        "hero-description": "Me apasiona convertir requisitos complejos en productos mantenibles, ya sea mediante servicios backend, soluciones cloud o una colaboración cercana con los equipos.",
+        "hero-pill-1": "Backend & C#",
+        "hero-pill-2": "Azure",
+        "hero-pill-3": "Aprendizaje continuo",
+        "hero-stat-years": "años construyendo software",
+        "hero-stat-cloud": "experiencia cloud",
+        "hero-stat-learning": "curiosidad y crecimiento",
         "learning-title" : "Aprendizaje",
         "learning-description" : "Capacidad para aprender y resolver problemas. A lo largo de mi carrera me he enfrentado a gran cantidad de retos lo que me ha permitido desarrollar un método de trabajo que acelera el proceso de aprendizaje y comprensión.",
         "net-title" : "Backend y C#",
@@ -73,6 +90,12 @@
     "contact": {
         "title": "Contáctame",
         "subtitle": "¿Quieres ponerte en contacto? Déjame un mensaje",
+        "eyebrow": "Hablemos",
+        "panel-title": "Abierto a nuevas ideas, proyectos y conversaciones",
+        "panel-description": "Ya sea para hablar de un proyecto, intercambiar perspectivas o explorar una colaboración, siempre me alegra conectar.",
+        "panel-item-1": "Conversaciones sobre backend y arquitectura cloud",
+        "panel-item-2": "Ingeniería de producto y alianzas de entrega",
+        "panel-item-3": "Mentoría y compartición de conocimiento",
         "name": "Nombre *",
         "name-validation": "Es obligatorio introducir un nombre.",
         "name-validation-length": "El nombre debe tener una longitud entre 3 y 80 caracteres.",
