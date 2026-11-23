@@ -11369,6 +11369,9 @@ header.masthead .masthead-badges span {
   justify-content: center;
   margin-bottom: 1.5rem;
 }
+.about-card-centered__icon-wrap .fa-stack {
+  font-size: 3rem;
+}
 .about-card-centered h4 {
   font-size: 1.3rem;
   margin-bottom: 0.75rem;

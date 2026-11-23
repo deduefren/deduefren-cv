@@ -5,7 +5,7 @@ import ContactForm from './components/ContactForm';
 import ExperienceSection from './components/ExperienceSection';
 import { getInitialLanguage, Language, translate } from './i18n';
 
-const showBlog = true;
+const showBlog = false;
 const sectionIds = ['aboutme', 'career', 'certifications', 'contact'] as const;
 type SectionId = (typeof sectionIds)[number];
 
