@@ -11,14 +11,22 @@ type ExperienceItem = {
   category?: string;
   inverted?: boolean;
   ending?: boolean;
+  href?: string;
+  linkTextKey?: string;
 };
 
 const experienceItems: ExperienceItem[] = [
+  { key: 'item19', titleKey: 'career.item19.title', descriptionKey: 'career.item19.description', dateKey: 'career.item19.date', image: '/assets/img/about/13.png', imageAlt: 'Microsoft Azure AI Apps and Agents Developer Associate', category: 'Certification', inverted: true },
+  { key: 'item18', titleKey: 'career.item18.title', descriptionKey: 'career.item18.description', dateKey: 'career.item18.date', image: '/assets/img/about/9.jpg', imageAlt: 'UNED Information Technology Engineering degree', category: 'Education', href: 'https://www.linkedin.com/school/universidad-nacional-de-educaci%C3%B3n-a-distancia---u.n.e.d./', linkTextKey: 'career.education-link' },
+  { key: 'item17', titleKey: 'career.item17.title', descriptionKey: 'career.item17.description', dateKey: 'career.item17.date', image: '/assets/img/about/13.png', imageAlt: 'Microsoft Fabric Data Engineer Associate', category: 'Certification', inverted: true },
+  { key: 'item16', titleKey: 'career.item16.title', descriptionKey: 'career.item16.description', dateKey: 'career.item16.date', image: '/assets/img/about/13.png', imageAlt: 'Microsoft Fabric Analytics Engineer Associate', category: 'Certification' },
+  { key: 'item15', titleKey: 'career.item15.title', descriptionKey: 'career.item15.description', dateKey: 'career.item15.date', image: '/assets/img/about/12.svg', imageAlt: 'Plain Concepts', category: 'Role', inverted: true, href: 'https://www.linkedin.com/company/plainconcepts/' },
+  { key: 'item14', titleKey: 'career.item14.title', descriptionKey: 'career.item14.description', dateKey: 'career.item14.date', imageAlt: 'IEEE Eta Kappa Nu', category: 'Membership', href: 'https://hkn.ieee.org/', linkTextKey: 'career.organization-link' },
   { key: 'item13', titleKey: 'career.item13.title', descriptionKey: 'career.item13.description', dateKey: 'career.item13.date', image: '/assets/img/about/13.png', imageAlt: 'Microsoft fundamentals certifications', category: 'Certification' },
-  { key: 'item12', titleKey: 'career.item12.title', descriptionKey: 'career.item12.description', dateKey: 'career.item12.date', image: '/assets/img/about/12.svg', imageAlt: 'Plain Concepts', category: 'Team', inverted: true },
+  { key: 'item12', titleKey: 'career.item12.title', descriptionKey: 'career.item12.description', dateKey: 'career.item12.date', image: '/assets/img/about/12.svg', imageAlt: 'Sidra', category: 'Role', inverted: true, href: 'https://www.linkedin.com/company/sidradata/' },
   { key: 'item11', titleKey: 'career.item11.title', descriptionKey: 'career.item11.description', dateKey: 'career.item11.date', image: '/assets/img/about/11.png', imageAlt: 'Microsoft Azure DevOps Engineer', category: 'Certification' },
   { key: 'item10', titleKey: 'career.item10.title', descriptionKey: 'career.item10.description', dateKey: 'career.item10.date', image: '/assets/img/about/10.png', imageAlt: 'Microsoft Azure Developer Associate', category: 'Certification', inverted: true },
-  { key: 'item9', titleKey: 'career.item9.title', descriptionKey: 'career.item9.description', dateKey: 'career.item9.date', image: '/assets/img/about/9.jpg', imageAlt: 'UNED studies', category: 'Study' },
+  { key: 'item9', titleKey: 'career.item9.title', descriptionKey: 'career.item9.description', dateKey: 'career.item9.date', image: '/assets/img/about/9.jpg', imageAlt: 'UNED studies', category: 'Study', href: 'https://www.uned.es/universidad/inicio.html', linkTextKey: 'career.education-link' },
   { key: 'item8', titleKey: 'career.item8.title', descriptionKey: 'career.item8.description', dateKey: 'career.item8.date', image: '/assets/img/about/8.jpg', imageAlt: 'C# certification', category: 'Certification', inverted: true },
   { key: 'item7', titleKey: 'career.item7.title', descriptionKey: 'career.item7.description', dateKey: 'career.item7.date', image: '/assets/img/about/7.jpg', imageAlt: 'Team leader promotion', category: 'Leadership' },
   { key: 'item6', titleKey: 'career.item6.title', descriptionKey: 'career.item6.description', dateKey: 'career.item6.date', image: '/assets/img/about/6.jpg', imageAlt: 'Clarcat', category: 'Role', inverted: true },
@@ -78,6 +86,11 @@ function renderExperienceItem(item: ExperienceItem, t: Translate) {
           </div>
         </div>
         {description ? <p className="career-card__body">{description}</p> : null}
+        {item.href ? (
+          <a className="career-card__link" href={item.href} target="_blank" rel="noreferrer noopener">
+            {item.linkTextKey ? t(item.linkTextKey) : t('career.organization-link')}
+          </a>
+        ) : null}
       </article>
     </li>
   );

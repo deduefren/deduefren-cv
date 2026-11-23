@@ -11166,9 +11166,9 @@ header.masthead .masthead-badges span {
 }
 
 .career-timeline {
-  --timeline-center-x: 1.25rem;
-  --timeline-marker-size: 7.25rem;
-  --timeline-image-size: 6.25rem;
+  --timeline-center-x: 1.75rem;
+  --timeline-marker-size: 3rem;
+  --timeline-image-size: 2.5rem;
   --timeline-item-gap: calc((var(--timeline-marker-size) / 2) + 1rem);
   position: relative;
   list-style: none;
@@ -11301,6 +11301,15 @@ header.masthead .masthead-badges span {
   margin: 0;
   color: #495057;
 }
+.career-card__link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: #0056b3;
+  font-weight: 700;
+}
+.career-card--highlight .career-card__link {
+  color: #ffc800;
+}
 .career-card--highlight {
   background: linear-gradient(135deg, #212529 0%, #343a40 100%);
   border-color: #212529;
@@ -11318,6 +11327,8 @@ header.masthead .masthead-badges span {
 @media (min-width: 768px) {
   .career-timeline {
     --timeline-center-x: 50%;
+    --timeline-marker-size: 7.25rem;
+    --timeline-image-size: 6.25rem;
   }
   .career-item {
     width: calc(50% - var(--timeline-item-gap));
@@ -11533,12 +11544,12 @@ section#contact form#contactForm :-ms-input-placeholder {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 100%;
-  min-height: 220px;
+  min-height: 260px;
+  gap: 1rem;
   padding: 1.25rem;
   border-radius: 1.5rem;
-  text-decoration: none;
   color: #1f2937;
   background:
     radial-gradient(circle at top right, rgba(255, 200, 0, 0.18), transparent 30%),
@@ -11557,12 +11568,20 @@ section#contact form#contactForm :-ms-input-placeholder {
   pointer-events: none;
 }
 
-.certification-card:hover,
-.certification-card:focus-visible {
+.certification-card:not(.certification-card--lg):hover,
+.certification-card:not(.certification-card--lg):focus-within {
   transform: translateY(-4px);
   border-color: rgba(255, 200, 0, 0.35);
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
   color: #1f2937;
+}
+
+.certification-card--lg:hover,
+.certification-card--lg:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(255, 200, 0, 0.35);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+  color: #f8fafc;
 }
 
 .certification-card__eyebrow {
@@ -11607,10 +11626,17 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 .certification-card__title {
+  display: inline-block;
   color: inherit;
   font-size: 1.15rem;
   line-height: 1.35;
   font-weight: 700;
+  text-decoration: none;
+}
+
+.certification-card__title:hover,
+.certification-card__title:focus-visible {
+  text-decoration: underline;
 }
 
 .certification-card__issuer {
@@ -11620,10 +11646,35 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-weight: 500;
 }
 
+.certification-card__date {
+  margin: 0.4rem 0 0;
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
+.certification-card__links {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  display: grid;
+  justify-items: start;
+  gap: 0.45rem;
+}
+
+.certification-card__details-link {
+  color: #0056b3;
+  font-weight: 700;
+}
+
+.certification-card--lg .certification-card__date,
+.certification-card--lg .certification-card__details-link {
+  color: rgba(248, 250, 252, 0.92);
+}
+
 .certification-card--sm,
 .certification-card--md,
 .certification-card--lg {
-  min-height: 220px;
+  min-height: 260px;
 }
 
 .certification-card--sm .certification-card__image-wrap {
@@ -11675,6 +11726,11 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 .certification-card--lg .certification-card__title {
   font-size: 1.15rem;
+}
+
+.certification-card--lg .certification-card__title:hover,
+.certification-card--lg .certification-card__title:focus-visible {
+  color: #ffc800;
 }
 
 @media (min-width: 992px) {

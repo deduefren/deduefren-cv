@@ -44,6 +44,18 @@ jobs:
       - name: Test
         run: dotnet test api --no-restore --verbosity normal
 
+      - name: Install app dependencies
+        run: npm ci
+        working-directory: cv-app
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+        working-directory: cv-app
+
+      - name: Test app
+        run: npm test
+        working-directory: cv-app
+
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
