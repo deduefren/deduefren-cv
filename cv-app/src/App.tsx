@@ -16,6 +16,7 @@ type AppProps = {
 export default function App({ initialLanguage }: AppProps) {
   const [language] = useState<Language>(initialLanguage ?? getInitialLanguage());
   const [activeSection, setActiveSection] = useState<SectionId>('aboutme');
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const t = (key: string) => translate(language, key);
 
   useEffect(() => {
@@ -65,21 +66,20 @@ export default function App({ initialLanguage }: AppProps) {
           <button
             className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarResponsive"
             aria-controls="navbarResponsive"
-            aria-expanded="false"
+            aria-expanded={isMobileNavOpen}
             aria-label="Toggle navigation"
+            onClick={() => setIsMobileNavOpen((isOpen) => !isOpen)}
           >
             Menu
             <i className="fas fa-bars ms-1"></i>
           </button>
-          <div className="collapse navbar-collapse" id="navbarResponsive">
+          <div className={`collapse navbar-collapse${isMobileNavOpen ? ' show' : ''}`} id="navbarResponsive">
             <ul className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-              <li className="nav-item"><a className={`nav-link${activeSection === 'aboutme' ? ' active' : ''}`} href="#aboutme" onClick={() => setActiveSection('aboutme')}>{t('about.title')}</a></li>
-              <li className="nav-item"><a className={`nav-link${activeSection === 'career' ? ' active' : ''}`} href="#career" onClick={() => setActiveSection('career')}>{t('career.title')}</a></li>
-              <li className="nav-item"><a className={`nav-link${activeSection === 'certifications' ? ' active' : ''}`} href="#certifications" onClick={() => setActiveSection('certifications')}>{t('certifications.title')}</a></li>
-              <li className="nav-item"><a className={`nav-link${activeSection === 'contact' ? ' active' : ''}`} href="#contact" onClick={() => setActiveSection('contact')}>{t('contact.title')}</a></li>
+              <li className="nav-item"><a className={`nav-link${activeSection === 'aboutme' ? ' active' : ''}`} href="#aboutme" onClick={() => { setActiveSection('aboutme'); setIsMobileNavOpen(false); }}>{t('about.title')}</a></li>
+              <li className="nav-item"><a className={`nav-link${activeSection === 'career' ? ' active' : ''}`} href="#career" onClick={() => { setActiveSection('career'); setIsMobileNavOpen(false); }}>{t('career.title')}</a></li>
+              <li className="nav-item"><a className={`nav-link${activeSection === 'certifications' ? ' active' : ''}`} href="#certifications" onClick={() => { setActiveSection('certifications'); setIsMobileNavOpen(false); }}>{t('certifications.title')}</a></li>
+              <li className="nav-item"><a className={`nav-link${activeSection === 'contact' ? ' active' : ''}`} href="#contact" onClick={() => { setActiveSection('contact'); setIsMobileNavOpen(false); }}>{t('contact.title')}</a></li>
             </ul>
           </div>
         </div>
@@ -179,7 +179,7 @@ export default function App({ initialLanguage }: AppProps) {
       <ExperienceSection t={t} />
 
       <section className="page-section" id="certifications">
-        <CertificationsSection t={t} />
+        <CertificationsSection t={t} locale={language === 'es' ? 'es-ES' : 'en-GB'} />
       </section>
 
       {showBlog ? (
