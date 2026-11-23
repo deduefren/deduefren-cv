@@ -5,8 +5,8 @@
 
 version: 2
 updates:
-  # Npm Config
-  - package-ecosystem: "npm" 
+  # npm updates cover all dependencies in /cv-app, including React.
+  - package-ecosystem: "npm"
     directory: "/cv-app"
     schedule:
       interval: "daily"
