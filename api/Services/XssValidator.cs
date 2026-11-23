@@ -38,7 +38,7 @@ namespace api.Services
             //Checks any html tags i.e. <script, <embed, <object etc.
             pattren.Append(@"|(<(script|iframe|embed|frame|frameset|object|img|applet|body|html|style|layer|link|ilayer|meta|bgsound))");
 
-            return !Regex.IsMatch(System.Web.HttpUtility.UrlDecode(inputParameter), pattren.ToString(), RegexOptions.IgnoreCase | RegexOptions.Compiled);
+            return !Regex.IsMatch(System.Net.WebUtility.UrlDecode(inputParameter), pattren.ToString(), RegexOptions.IgnoreCase | RegexOptions.Compiled);
         }
     }
 }
