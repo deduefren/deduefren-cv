@@ -29,7 +29,7 @@ export default function App({ initialLanguage }: AppProps) {
 
     function resolveFromScroll() {
       const navHeight = document.getElementById('mainNav')?.clientHeight ?? 74;
-      const probeY = window.scrollY + navHeight + 8;
+      const probeY = window.scrollY + navHeight + (window.innerHeight - navHeight) / 2;
       let nextActive: SectionId = 'aboutme';
 
       for (const id of sectionIds) {
