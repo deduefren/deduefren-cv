@@ -5,14 +5,14 @@
     "dev": "node server.mjs",
     "dev:spa": "vite",
     "start": "node server.mjs --prod",
-    "build": "tsc --noEmit && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "build": "tsc --noEmit && vite build",
     "preview": "node server.mjs --prod",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"
   },
   "engines": {
-    "node": ">=18.13.0"
+    "node": ">=20 <21"
   },
   "private": true,
   "dependencies": {
