@@ -9,36 +9,35 @@ type ExperienceItem = {
   image?: string;
   imageAlt?: string;
   category?: string;
-  inverted?: boolean;
   ending?: boolean;
   href?: string;
   linkTextKey?: string;
 };
 
 const experienceItems: ExperienceItem[] = [
-  { key: 'item19', titleKey: 'career.item19.title', descriptionKey: 'career.item19.description', dateKey: 'career.item19.date', image: '/assets/img/about/13.png', imageAlt: 'Microsoft Azure AI Apps and Agents Developer Associate', category: 'Certification', inverted: true },
+  { key: 'item19', titleKey: 'career.item19.title', descriptionKey: 'career.item19.description', dateKey: 'career.item19.date', image: '/assets/img/about/13.png', imageAlt: 'Microsoft Azure AI Apps and Agents Developer Associate', category: 'Certification' },
   { key: 'item18', titleKey: 'career.item18.title', descriptionKey: 'career.item18.description', dateKey: 'career.item18.date', image: '/assets/img/about/9.jpg', imageAlt: 'UNED Information Technology Engineering degree', category: 'Education', href: 'https://www.linkedin.com/school/universidad-nacional-de-educaci%C3%B3n-a-distancia---u.n.e.d./', linkTextKey: 'career.education-link' },
-  { key: 'item17', titleKey: 'career.item17.title', descriptionKey: 'career.item17.description', dateKey: 'career.item17.date', image: '/assets/img/about/13.png', imageAlt: 'Microsoft Fabric Data Engineer Associate', category: 'Certification', inverted: true },
+  { key: 'item17', titleKey: 'career.item17.title', descriptionKey: 'career.item17.description', dateKey: 'career.item17.date', image: '/assets/img/about/13.png', imageAlt: 'Microsoft Fabric Data Engineer Associate', category: 'Certification' },
   { key: 'item16', titleKey: 'career.item16.title', descriptionKey: 'career.item16.description', dateKey: 'career.item16.date', image: '/assets/img/about/13.png', imageAlt: 'Microsoft Fabric Analytics Engineer Associate', category: 'Certification' },
-  { key: 'item15', titleKey: 'career.item15.title', descriptionKey: 'career.item15.description', dateKey: 'career.item15.date', image: '/assets/img/about/12.svg', imageAlt: 'Plain Concepts', category: 'Role', inverted: true, href: 'https://www.linkedin.com/company/plainconcepts/' },
+  { key: 'item20', titleKey: 'career.item20.title', descriptionKey: 'career.item20.description', dateKey: 'career.item20.date', image: '/assets/img/about/12.jpg', imageAlt: 'Plain Concepts logo', category: 'Role', href: 'https://www.linkedin.com/company/plainconcepts/' },
   { key: 'item14', titleKey: 'career.item14.title', descriptionKey: 'career.item14.description', dateKey: 'career.item14.date', imageAlt: 'IEEE Eta Kappa Nu', category: 'Membership', href: 'https://hkn.ieee.org/', linkTextKey: 'career.organization-link' },
   { key: 'item13', titleKey: 'career.item13.title', descriptionKey: 'career.item13.description', dateKey: 'career.item13.date', image: '/assets/img/about/13.png', imageAlt: 'Microsoft fundamentals certifications', category: 'Certification' },
-  { key: 'item12', titleKey: 'career.item12.title', descriptionKey: 'career.item12.description', dateKey: 'career.item12.date', image: '/assets/img/about/12.svg', imageAlt: 'Sidra', category: 'Role', inverted: true, href: 'https://www.linkedin.com/company/sidradata/' },
+  { key: 'item15', titleKey: 'career.item15.title', descriptionKey: 'career.item15.description', dateKey: 'career.item15.date', image: '/assets/img/about/12.jpg', imageAlt: 'Plain Concepts logo', category: 'Role', href: 'https://www.linkedin.com/company/plainconcepts/' },
   { key: 'item11', titleKey: 'career.item11.title', descriptionKey: 'career.item11.description', dateKey: 'career.item11.date', image: '/assets/img/about/11.png', imageAlt: 'Microsoft Azure DevOps Engineer', category: 'Certification' },
-  { key: 'item10', titleKey: 'career.item10.title', descriptionKey: 'career.item10.description', dateKey: 'career.item10.date', image: '/assets/img/about/10.png', imageAlt: 'Microsoft Azure Developer Associate', category: 'Certification', inverted: true },
+  { key: 'item10', titleKey: 'career.item10.title', descriptionKey: 'career.item10.description', dateKey: 'career.item10.date', image: '/assets/img/about/10.png', imageAlt: 'Microsoft Azure Developer Associate', category: 'Certification' },
   { key: 'item9', titleKey: 'career.item9.title', descriptionKey: 'career.item9.description', dateKey: 'career.item9.date', image: '/assets/img/about/9.jpg', imageAlt: 'UNED studies', category: 'Study', href: 'https://www.uned.es/universidad/inicio.html', linkTextKey: 'career.education-link' },
-  { key: 'item8', titleKey: 'career.item8.title', descriptionKey: 'career.item8.description', dateKey: 'career.item8.date', image: '/assets/img/about/8.jpg', imageAlt: 'C# certification', category: 'Certification', inverted: true },
+  { key: 'item8', titleKey: 'career.item8.title', descriptionKey: 'career.item8.description', dateKey: 'career.item8.date', image: '/assets/img/about/8.jpg', imageAlt: 'C# certification', category: 'Certification' },
   { key: 'item7', titleKey: 'career.item7.title', descriptionKey: 'career.item7.description', dateKey: 'career.item7.date', image: '/assets/img/about/7.jpg', imageAlt: 'Team leader promotion', category: 'Leadership' },
-  { key: 'item6', titleKey: 'career.item6.title', descriptionKey: 'career.item6.description', dateKey: 'career.item6.date', image: '/assets/img/about/6.jpg', imageAlt: 'Clarcat', category: 'Role', inverted: true },
+  { key: 'item6', titleKey: 'career.item6.title', descriptionKey: 'career.item6.description', dateKey: 'career.item6.date', image: '/assets/img/about/6.jpg', imageAlt: 'Clarcat', category: 'Role' },
   { key: 'item5', titleKey: 'career.item5.title', descriptionKey: 'career.item5.description', dateKey: 'career.item5.date', image: '/assets/img/about/5.jpg', imageAlt: 'Izertis', category: 'Role' },
-  { key: 'item4', titleKey: 'career.item4.title', descriptionKey: 'career.item4.description', dateKey: 'career.item4.date', image: '/assets/img/about/4.jpg', imageAlt: 'English B2', category: 'Study', inverted: true },
+  { key: 'item4', titleKey: 'career.item4.title', descriptionKey: 'career.item4.description', dateKey: 'career.item4.date', image: '/assets/img/about/4.jpg', imageAlt: 'English B2', category: 'Study' },
   { key: 'item3', titleKey: 'career.item3.title', descriptionKey: 'career.item3.description', dateKey: 'career.item3.date', image: '/assets/img/about/3.jpg', imageAlt: 'International support', category: 'Project' },
-  { key: 'item2', titleKey: 'career.item2.title', descriptionKey: 'career.item2.description', dateKey: 'career.item2.date', image: '/assets/img/about/2.jpg', imageAlt: 'Clarcat', category: 'Role', inverted: true },
+  { key: 'item2', titleKey: 'career.item2.title', descriptionKey: 'career.item2.description', dateKey: 'career.item2.date', image: '/assets/img/about/2.jpg', imageAlt: 'Clarcat', category: 'Role' },
   { key: 'item1', titleKey: 'career.item1.title', descriptionKey: 'career.item1.description', dateText: '2011-2013', image: '/assets/img/about/1.jpg', imageAlt: 'Student years', category: 'Study' },
-  { key: 'item0', titleKey: 'career.item0.title', descriptionKey: 'career.item0.description', imageAlt: 'Beginnings', category: 'Start', inverted: true, ending: true },
+  { key: 'item0', titleKey: 'career.item0.title', descriptionKey: 'career.item0.description', imageAlt: 'Beginnings', category: 'Start', ending: true },
 ];
 
-function renderExperienceItem(item: ExperienceItem, t: Translate) {
+function renderExperienceItem(item: ExperienceItem, t: Translate, inverted: boolean) {
   const dateText = item.dateText ?? (item.dateKey ? t(item.dateKey) : '');
   const title = t(item.titleKey);
   const description = t(item.descriptionKey);
@@ -51,7 +50,7 @@ function renderExperienceItem(item: ExperienceItem, t: Translate) {
 
   if (item.ending) {
     return (
-      <li key={item.key} className="career-item career-item--ending">
+      <li key={item.key} className={`career-item career-item--ending${inverted ? ' career-item--alt' : ''}`}>
         <div className="career-marker" aria-hidden="true">
           {markerContent}
         </div>
@@ -69,7 +68,7 @@ function renderExperienceItem(item: ExperienceItem, t: Translate) {
   }
 
   return (
-    <li key={item.key} className={`career-item${item.inverted ? ' career-item--alt' : ''}`}>
+    <li key={item.key} className={`career-item${inverted ? ' career-item--alt' : ''}`}>
       <div className="career-marker" aria-hidden="true">
         {markerContent}
       </div>
@@ -104,7 +103,7 @@ export default function ExperienceSection({ t }: { t: Translate }) {
           <h2 className="section-heading text-uppercase">{t('career.title')}</h2>
           <h3 className="section-subheading text-muted">{t('career.subtitle')}</h3>
         </div>
-        <ul className="career-timeline">{experienceItems.map((item) => renderExperienceItem(item, t))}</ul>
+        <ul className="career-timeline">{experienceItems.map((item, index) => renderExperienceItem(item, t, index % 2 !== 0))}</ul>
       </div>
     </section>
   );
