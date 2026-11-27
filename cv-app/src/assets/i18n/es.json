@@ -1,8 +1,8 @@
 {
     "landing": {
         "welcome": "Hola, soy Daniel",
-        "job-title" : "Ingeniero Backend | Datos e IA",
-        "description": "Diseño sistemas backend robustos y soluciones cloud, con foco actual en Microsoft Fabric, ingeniería de datos y sistemas de IA.",
+        "job-title" : "Ingeniero de Software | Datos e IA",
+        "description": "Diseño sistemas backend robustos y soluciones cloud, con actualmente enfocado en Microsoft Fabric, ingeniería de datos y sistemas de IA.",
         "contact-cta": "Hablemos",
         "experience-cta": "Ver mi experiencia",
         "profile-title": "Actualmente enfocado en",
@@ -13,9 +13,9 @@
     },
     "about": {
         "title":"Sobre mí",
-        "subtitle": "Amante de la tecnología y la fotografía. Ingeniero Backend en Plain Concepts, centrado en Microsoft Fabric, datos e IA. Graduado en Ingeniería en Tecnologías de la Información por la UNED.",
-        "hero-eyebrow": "Ingeniero Backend | Datos e IA",
-        "hero-title": "Creando software y soluciones de datos fiables, también con sistemas de IA.",
+        "subtitle": "Amante de la tecnología y la fotografía. Ingeniero de Software en Plain Concepts, centrado en Microsoft Fabric, datos e IA. Graduado en Ingeniería en Tecnologías de la Información por la UNED.",
+        "hero-eyebrow": "Ingeniero de Software | Datos e IA",
+        "hero-title": "Creando software y soluciones de datos fiables, integrando sistemas de IA en el proceso.",
         "hero-description": "Convierto requisitos complejos en productos mantenibles, combinando ingeniería backend, Microsoft Fabric, arquitectura cloud e IA aplicada.",
         "hero-pill-1": "Backend & C#",
         "hero-pill-2": "Microsoft Fabric",
@@ -26,7 +26,7 @@
         "learning-title" : "Aprendizaje",
         "learning-description" : "Capacidad para aprender y resolver problemas. A lo largo de mi carrera me he enfrentado a gran cantidad de retos lo que me ha permitido desarrollar un método de trabajo que acelera el proceso de aprendizaje y comprensión.",
         "net-title" : "Backend y C#",
-        "net-description" : "Me especializo en soluciones backend con tecnologías Microsoft y C#, con más de una década de experiencia profesional en ingeniería de software.",
+        "net-description" : "Me especializo en soluciones backend con tecnologías Microsoft y C#, con más de una década de experiencia profesional en ingeniería de software. Experiencia en el diseño y mantenimiento de flujos de trabajo de IA SDD.",
         "backend-title" : "Arquitectura y Azure",
         "backend-description" : "Creo soluciones cloud y de datos, incluidas cargas de trabajo de Microsoft Fabric, y trabajo con sistemas de IA. Mis certificaciones Microsoft abarcan Azure, datos, Fabric e IA.",
         "passion-title" : "Pasión",
@@ -41,8 +41,7 @@
         "subtitle": "Certificaciones y credenciales Microsoft con enlaces de verificación y detalles de vigencia.",
         "credential-label": "Credencial",
         "earned-label": "Obtenida",
-        "details-link": "Detalles de la certificación",
-        "devops-exam-link": "Insignia relacionada del examen AZ-400"
+        "details-link": "Detalles de la certificación"
     },
     "career": {
         "title": "Experiencia",

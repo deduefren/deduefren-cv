@@ -1,7 +1,7 @@
 {
     "landing": {
         "welcome": "Hi, I’m Daniel",
-        "job-title" : "Backend Engineer | Data & AI",
+        "job-title" : "Software Development Engineer | Data & AI",
         "description": "I build resilient backend systems and cloud solutions, with a current focus on Microsoft Fabric, data engineering and AI systems.",
         "contact-cta": "Let’s talk",
         "experience-cta": "See my experience",
@@ -13,9 +13,9 @@
     },
     "about": {
         "title":"About me",
-        "subtitle": "Technology and photography lover. Backend Engineer at Plain Concepts, focused on Microsoft Fabric, data and AI. Information Technology Engineering graduate at UNED.",
-        "hero-eyebrow": "Backend Engineer | Data & AI",
-        "hero-title": "Building reliable software and data solutions, with AI systems in the mix.",
+        "subtitle": "Technology and photography lover. Software Development Engineer at Plain Concepts, focused on Microsoft Fabric, data and AI. Information Technology Engineering graduate at UNED.",
+        "hero-eyebrow": "Software Development Engineer | Data & AI",
+        "hero-title": "Building reliable software and data solutions, integrating with AI systems in the process.",
         "hero-description": "I turn complex requirements into maintainable products, drawing on backend engineering, Microsoft Fabric, cloud architecture and applied AI.",
         "hero-pill-1": "Backend & C#",
         "hero-pill-2": "Microsoft Fabric",
@@ -26,7 +26,7 @@
         "learning-title" : "Learning",
         "learning-description" : "Strong learning and problem solving abilities. Throughout my career I have faced a great number of challenges, which has allowed me to develop a working method that accelerates the learning and understanding process.",
         "net-title" : "Backend and C#",
-        "net-description" : "I specialize in backend solutions with Microsoft technologies and C#, bringing more than a decade of professional software engineering experience.",
+        "net-description" : "I specialize in backend solutions with Microsoft technologies and C#, bringing more than a decade of professional software engineering experience. Experience in designing and maintaining AI SDD workflows.",
         "backend-title" : "Architecture and Azure",
         "backend-description" : "I build cloud and data solutions, including Microsoft Fabric workloads, and work with AI systems. My Microsoft certifications span Azure, data, Fabric and AI.",
         "passion-title" : "Passion",
@@ -41,8 +41,7 @@
         "subtitle": "Microsoft certifications and credentials, with verification and validity details.",
         "credential-label": "Credential",
         "earned-label": "Earned",
-        "details-link": "Certification details",
-        "devops-exam-link": "Related AZ-400 exam badge"
+        "details-link": "Certification details"
     },
     "career": {
         "title": "Experience",

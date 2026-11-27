@@ -6,9 +6,8 @@ type Certification = {
   image: string;
   href: string;
   detailsHref?: string;
-  examBadgeHref?: string;
   earnedOn?: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'lg';
 };
 
 const associateBadge = 'https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg?branch=main';
@@ -20,7 +19,6 @@ const certifications: Certification[] = [
     image: 'https://images.credly.com/size/110x110/images/c3ab66f8-5d59-4afa-a6c2-0ba30a1989ca/CERT-Expert-DevOps-Engineer-600x600.png',
     href: 'https://learn.microsoft.com/en-us/users/deduefren/credentials/certification/devops-engineer?tab=credentials-tab',
     detailsHref: 'https://learn.microsoft.com/en-us/credentials/certifications/devops-engineer/',
-    examBadgeHref: 'https://www.credly.com/badges/365e5531-1337-45e7-b4f2-151365999016/public_url',
     earnedOn: '2021-08-06',
     size: 'lg',
   },
@@ -87,7 +85,6 @@ const certifications: Certification[] = [
     href: 'https://learn.microsoft.com/en-us/users/deduefren/credentials/certification/azure-ai-fundamentals?tab=credentials-tab',
     detailsHref: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/',
     earnedOn: '2022-06-30',
-    size: 'sm',
   },
   {
     title: 'Microsoft Certified: Azure Data Fundamentals',
@@ -96,7 +93,6 @@ const certifications: Certification[] = [
     href: 'https://learn.microsoft.com/en-us/users/deduefren/credentials/certification/azure-data-fundamentals?tab=credentials-tab',
     detailsHref: 'https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/',
     earnedOn: '2022-06-29',
-    size: 'sm',
   },
   {
     title: 'Microsoft Certified: Power Platform Fundamentals',
@@ -105,7 +101,6 @@ const certifications: Certification[] = [
     href: 'https://learn.microsoft.com/en-us/users/deduefren/credentials/certification/power-platform-fundamentals?tab=credentials-tab',
     detailsHref: 'https://learn.microsoft.com/en-us/credentials/certifications/power-platform-fundamentals/',
     earnedOn: '2022-06-28',
-    size: 'sm',
   },
   {
     title: 'MCSA: Web Applications',
@@ -114,7 +109,6 @@ const certifications: Certification[] = [
     href: 'https://learn.microsoft.com/en-us/users/deduefren/credentials/certification-o-/mcsa-web-applications-certification?tab=credentials-tab',
     detailsHref: 'https://learn.microsoft.com/en-us/credentials/certifications/mcsa-web-applications-certification/',
     earnedOn: '2019-01-25',
-    size: 'sm',
   },
   {
     title: 'Microsoft Certified Professional',
@@ -123,7 +117,6 @@ const certifications: Certification[] = [
     href: 'https://learn.microsoft.com/en-us/users/deduefren/credentials/certification-o-/nouid.1519?tab=credentials-tab',
     detailsHref: 'https://learn.microsoft.com/en-us/credentials/',
     earnedOn: '2018-10-24',
-    size: 'sm',
   },
   {
     title: 'Kusto Detective Agency - Complete',
@@ -136,7 +129,6 @@ const certifications: Certification[] = [
     issuer: 'Microsoft',
     image: 'https://images.credly.com/size/110x110/images/cbab3216-025d-4601-86ee-c5970b348d48/Developing_ASP.NET_MVC_Web_Applications-01.png',
     href: 'https://www.credly.com/badges/9c735927-76fb-4c87-b683-5d1f7abafdc8/public_url',
-    size: 'sm',
   },
   {
     title: 'MCSD: App Builder - Certified 2019',
@@ -149,7 +141,6 @@ const certifications: Certification[] = [
     issuer: 'Microsoft',
     image: 'https://images.credly.com/size/110x110/images/78e39333-d0db-4931-b231-13bdb37040cc/Programming_in_C_23-01.png',
     href: 'https://www.credly.com/badges/a94f713e-62b1-47ba-b995-60d8526d39de/public_url',
-    size: 'sm',
   },
 ];
 
@@ -175,16 +166,11 @@ function renderCertification(certification: Certification, t: Translate, locale:
           {certification.earnedOn ? <p className="certification-card__date">{t('certifications.earned-label')}: {formatDate(certification.earnedOn, locale)}</p> : null}
         </div>
       </div>
-      {certification.detailsHref || certification.examBadgeHref ? (
+      {certification.detailsHref ? (
         <div className="certification-card__links">
           {certification.detailsHref ? (
             <a className="certification-card__details-link" href={certification.detailsHref} target="_blank" rel="noreferrer noopener">
               {t('certifications.details-link')}
-            </a>
-          ) : null}
-          {certification.examBadgeHref ? (
-            <a className="certification-card__details-link" href={certification.examBadgeHref} target="_blank" rel="noreferrer noopener">
-              {t('certifications.devops-exam-link')}
             </a>
           ) : null}
         </div>
